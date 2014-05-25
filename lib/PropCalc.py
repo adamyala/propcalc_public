@@ -88,17 +88,72 @@ def sanitize_raw_costar(source, lat1, long1):
 				
 	return result
 
-def filter_data(source):
-	
+def not_impaired(source):
+	constants = [
+	'Partial Interest Transfer',
+	'Sale Leaseback',
+	'High Vacancy Property',
+	'Purchase By Tenant',
+	'Estate/Probate Sale',
+	'Distress Sale',
+	'REO Sale',
+	'Bankruptcy Sale'
+	]
 
-def main(file_path, lat1, long1):
+	for trait in constants:
+		if source.find(trait) != -1:
+			return False
+	return True
+
+def filter_data(source, impr_sqft, age):
+	result = []
+	for a in range(len(source)):
+		#Size at least 66% and at most 200%
+		if (impr_sqft * .66) <= int(source[a][6]) <= (impr_sqft * 2):
+			#Check Note 1 for impariment
+			if not_impaired(source[a][9]):
+				#Check Note 2 for impariment
+				if not_impaired(source[a][10]):
+					#At most 15 miles away
+					if source[a][15] <= 10:
+						result.append(source[a])
+	result = sorted(result,key=lambda l:l[13], reverse=False)
+	return result
+
+def select_comps(source, impr_sqft, age, price):
+	comps = []
+	dlrs_sqft = price / impr_sqft
+	for comp in source:
+		if comp[13] < dlrs_sqft:
+			comps.append(comp)
+		if len(comps) == 5:
+			return comps
+	return comps
+
+def PropCalc(file_path, lat1, long1, impr_sqft, age, price):
 	raw = csv_to_list(file_path)
-	clean_data = sanitize_raw_costar(raw, lat1, long1)
-	comp_ids = filter_data(clean_data)
+	cleaned_data = sanitize_raw_costar(raw, lat1, long1)
+	filtered_data = filter_data(cleaned_data, impr_sqft, age)
+	comp_ids = select_comps(filtered_data, impr_sqft, age, price)
 
-	
+	for comp in comp_ids:
+		print comp
 
-main('/home/adam/Code/PropCalc/test.csv',32.932964,-96.91964)
+def main():
+	# file_path = '/home/adam/Code/PropCalc/' + raw_input('Enter csv data file name: ')
+	# lat1 = input('Enter lattitude: ')
+	# long1 = input('Enter longitude: ')
+	# age = input('Enter property age: ')
+	# impr_sqft = input('Enter building square feet: ')
+	# price = input('Enter sale price: ')
+
+	# PropCalc(file_path, lat1, long1, impr_sqft, age, price)
+
+	PropCalc('/home/adam/Code/PropCalc/test.csv',32.932964, -96.91964, 120644, 28, 3867930)
+
+main()
+
+
 
 
 

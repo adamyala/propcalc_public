@@ -1,6 +1,6 @@
-Remove multi sales
-only 60% of target sqft
-GO through
+-Remove multi sales
+-only 60% of target sqft
+-GO through
 	remove 
 	Partial Interest Transfer
 	Sale Leaseback
@@ -9,11 +9,16 @@ GO through
 	Estate/Probate Sale
 	Distress Sale
 
-Order array by lowest $/sqft
+-Order array by lowest $/sqft
 
 within 10 years -> yes
 cap at useful life
 
-if more than 20 miles, no
+-if more than 20 miles, no
 
-after done filling 
+-after done filling 
+
+new notes:
+	high land props
+	usable life
+	smart distance
