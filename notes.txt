@@ -11,8 +11,8 @@
 
 -Order array by lowest $/sqft
 
-within 10 years -> yes
-cap at useful life
+-within 10 years -> yes
+-cap at useful life
 
 -if more than 20 miles, no
 
