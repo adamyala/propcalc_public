@@ -138,30 +138,35 @@ def get_coor(address):
 	result[1] = coor.longitude
 	return result
 
-def PropCalc(file_path, address impr_sqft, age, price):
+def PropCalc(file_path, address, impr_sqft, price, age):
 	raw = csv_to_list(file_path)
 	coor = get_coor(address)
 	cleaned_data = sanitize_raw_costar(raw, coor[0], coor[1])
 	filtered_data = filter_data(cleaned_data, impr_sqft, age)
 	comp_ids = select_comps(filtered_data, impr_sqft, age, price)
+	return comp_ids
 
+def print_comps(comp_ids):
+	print "Content-type:text/html\r\n\r\n"
+	print "<html>"
+	print "<head>"
+	print "<title>Best match comparables</title>"
+	print "</head>"
 	for comp in comp_ids:
-		print comp
+		print "<body>"
+		print "<h2>Hello %s</h2>" % (comp)
+		print "</body>"
+	print "</html>"
 
-def main():
-	# file_path = '/home/adam/Code/PropCalc/' + raw_input('Enter csv data file name: ')
-	# lat1 = input('Enter lattitude: ')
-	# long1 = input('Enter longitude: ')
-	# age = input('Enter property age: ')
-	# impr_sqft = input('Enter building square feet: ')
-	# price = input('Enter sale price: ')
+address = form.getvalue('address')
+impr_sqft = form.getvalue('impr_sqft')
+price = form.getvalue('price')
+age = form.getvalue('age')
+print_comps(PropCalc('/home/adam/Code/PropCalc/data/data.csv', address, impr_sqft, price, age))
 
-	# PropCalc(file_path, lat1, long1, impr_sqft, age, price)
 
-	PropCalc('/home/adam/Code/PropCalc/test.csv','1502 Champion Dr Carrollton, TX 75006', 120644, 28, 3867930)
 
-main()
-
+	# PropCalc('/home/adam/Code/PropCalc/data/data.csv','1502 Champion Dr Carrollton, TX 75006', 120644, 28, 3867930)
 
 
 
