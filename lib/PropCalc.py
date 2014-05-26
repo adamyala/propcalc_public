@@ -130,9 +130,18 @@ def select_comps(source, impr_sqft, age, price):
 			return comps
 	return comps
 
-def PropCalc(file_path, lat1, long1, impr_sqft, age, price):
+from pygeocoder import Geocoder
+def get_coor(address):
+	result = [''] * 2
+	coor = Geocoder.geocode(address)
+	result[0] = coor.latitude
+	result[1] = coor.longitude
+	return result
+
+def PropCalc(file_path, address impr_sqft, age, price):
 	raw = csv_to_list(file_path)
-	cleaned_data = sanitize_raw_costar(raw, lat1, long1)
+	coor = get_coor(address)
+	cleaned_data = sanitize_raw_costar(raw, coor[0], coor[1])
 	filtered_data = filter_data(cleaned_data, impr_sqft, age)
 	comp_ids = select_comps(filtered_data, impr_sqft, age, price)
 
@@ -149,7 +158,7 @@ def main():
 
 	# PropCalc(file_path, lat1, long1, impr_sqft, age, price)
 
-	PropCalc('/home/adam/Code/PropCalc/test.csv',32.932964, -96.91964, 120644, 28, 3867930)
+	PropCalc('/home/adam/Code/PropCalc/test.csv','1502 Champion Dr Carrollton, TX 75006', 120644, 28, 3867930)
 
 main()
 
