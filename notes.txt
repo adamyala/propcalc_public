@@ -1,0 +1,24 @@
+-Remove multi sales
+-only 60% of target sqft
+-GO through
+	remove 
+	Partial Interest Transfer
+	Sale Leaseback
+	High Vacancy Property
+	Purchase By Tenant
+	Estate/Probate Sale
+	Distress Sale
+
+-Order array by lowest $/sqft
+
+-within 10 years -> yes
+-cap at useful life
+
+-if more than 20 miles, no
+
+-after done filling 
+
+new notes:
+	high land props
+	usable life
+	smart distance
