@@ -1,0 +1,44 @@
+Light Manufacturing,A,Average,50.00
+Light Manufacturing,A,Low Cost,45.00
+Light Manufacturing,B,Average,50.00
+Light Manufacturing,B,Low Cost,45.00
+Light Manufacturing,C,Good,45.00
+Light Manufacturing,C,Average,40.00
+Light Manufacturing,C,Low Cost,40.00
+Light Manufacturing,D,Average,35.00
+Light Manufacturing,D,Low Cost,35.00
+Light Manufacturing,S,Good,40.00
+Light Manufacturing,S,Average,35.00
+Light Manufacturing,S,Low Cost,35.00
+Distribution Warehouse,A,Good,55.00
+Distribution Warehouse,A,Average,50.00
+Distribution Warehouse,B,Good,55.00
+Distribution Warehouse,B,Average,50.00
+Distribution Warehouse,C,Excellent,50.00
+Distribution Warehouse,C,Good,50.00
+Distribution Warehouse,C,Average,45.00
+Distribution Warehouse,C,Low Cost,40.00
+Distribution Warehouse,D,Good,45.00
+Distribution Warehouse,D,Average,40.00
+Distribution Warehouse,D,Low Cost,35.00
+Distribution Warehouse,S,Excellent,45.00
+Distribution Warehouse,S,Good,45.00
+Distribution Warehouse,S,Average,40.00
+Distribution Warehouse,S,Low Cost,35.00
+Storage Warehouse,A,Good,50.00
+Storage Warehouse,A,Average,50.00
+Storage Warehouse,A,Low Cost,45.00
+Storage Warehouse,B,Good,50.00
+Storage Warehouse,B,Average,50.00
+Storage Warehouse,B,Low Cost,45.00
+Storage Warehouse,C,Excellent,50.00
+Storage Warehouse,C,Good,45.00
+Storage Warehouse,C,Average,45.00
+Storage Warehouse,C,Low Cost,40.00
+Storage Warehouse,D,Good,40.00
+Storage Warehouse,D,Average,40.00
+Storage Warehouse,D,Low Cost,35.00
+Storage Warehouse,S,Excellent,45.00
+Storage Warehouse,S,Good,40.00
+Storage Warehouse,S,Average,40.00
+Storage Warehouse,S,Low Cost,35.00
