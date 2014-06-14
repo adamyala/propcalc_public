@@ -20,5 +20,20 @@
 
 new notes:
 	high land props
-	usable life
+-	usable life
 	smart distance
+
+-Multiple databases
+	add entry in side bar
+	have activate and deactive buttons
+
+-DRAW OUT MOCKUPS
+	form for entry
+	table to results
+	layout for databases
+
+-Ask for all info in property pane
+add comp source
+	lots o parsing
+
+brings all notes to one column

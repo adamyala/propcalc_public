@@ -1,0 +1,72 @@
+<html>
+
+    <style type="text/css">
+		div	{
+			position:relative;
+			padding:10px;
+			border: 1px solid #999;
+			float: left;
+		}
+    </style>
+
+	<div class='subject'>
+		<b>Subject</b>
+		<br/>
+		<b>Owner:</b>
+		<br/>
+		<b>Address:</b> {{street}}
+		<br/>
+		{{city}}, {{state}} {{zipcode}}
+		<br/>
+		<b>Building Size:</b> {{impr_sqft}}
+		<br/>
+		<b>Land Size:</b>
+		<br/>
+		<b>Built:</b>
+		<br/>
+		<b>Note1:</b>
+		<br/>
+		<b>Note2:</b>
+		<br/>
+		<b>Sale Price:</b> {{price}}
+		<br/>
+		<b>Sale Date:</b>
+		<br/>
+		<b>$/Sqft:</b>
+		<br/>
+		<b>Age:</b> {{age}}
+		<br/>
+		<b>Distance:</b> 0.00
+	</div>
+
+	{%- for comp in comps recursive %}
+		<div class='comp'>
+			<b>CompID:</b> {{ comp[0] }}
+			<br/>
+			<b>Owner:</b> {{ comp[1] }}
+			<br/>
+			<b>Address:</b> {{ comp[2] }}
+			<br/>
+			{{ comp[3] }}, {{ comp[4] }}
+			<br/>
+			<b>Building Size:</b> {{ comp[6] }}
+			<br/>
+			<b>Land Size:</b> {{ comp[7] }}
+			<br/>
+			<b>Built:</b> {{ comp[8] }}
+			<br/>
+			<b>Note1:</b> {{ comp[9] }}
+			<br/>
+			<b>Note2:</b> {{ comp[10] }}
+			<br/>
+			<b>Sale Price:</b> {{ comp[11] }}
+			<br/>
+			<b>Sale Date:</b> {{ comp[12] }}
+			<br/>
+			<b>$/Sqft:</b> {{ comp[13] }}
+			<br/>
+			<b>Age:</b> {{ comp[14] }}
+			<br/>
+			<b>Distance:</b> {{ comp[15] }}
+		</div>
+	{%- endfor -%}

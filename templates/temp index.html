@@ -1,0 +1,111 @@
+<html>
+
+    <head>
+        <title></title>
+    </head>
+
+    <style type="text/css">
+		form    {
+			margin:auto;
+			position:relative;
+			width:250px;
+			padding:10px;
+			border: 1px solid #999;
+		}
+		.formbox {margin-top: 8%}
+
+		input {width: 250px;}
+    </style>
+
+	<body>
+
+		<div class='feeds'>
+
+			<div class='enabled'>
+				CoStar
+				<br/>
+				Loopnet
+				<br/>
+			</div>
+
+			<div class= 'disabled'>
+				Xceligent
+				<br/>
+				Catylist
+				<br/>
+				Property Line
+				<br/>
+				CIMLS
+				<br/>
+			</div>
+
+		</div>
+
+		<div class="formbox">
+			<form name="input" action="/main/" method="post">
+				
+			    Street:
+			    <input type="text" name="street" value = '1502 Champion Dr'>
+			    <br/>
+
+			    City:
+			    <input type="text" name="city" value = 'Carrollton'>
+			    <br/>
+
+			    State:
+			    <input type="text" name="state" value = 'TX'>
+			    <br/>
+
+			    Zip:
+			    <input type="text" name="zip" value = '75006'>
+			    <br/>
+			    
+			    Improvement Square Feet:
+			    <input type="text" name="impr_sqft" value=120644>
+			    <br/>
+			    
+			    Sales Price:
+			    <input type="text" name="price" value=3867930>
+			    <br/>
+			    
+			    Age:
+			    <input type="text" name="age" value=28>
+			    <br/>
+			    
+			    Use:
+				<select name="use">
+					<option value="Light Manufacturing">Light Manufacturing</option>
+					<option value="Distribution Warehouse">Distribution Warehouse</option>
+					<option value="Storage Warehouse">Storage Warehouse</option>
+				</select>
+				<br/>
+
+				Grade:
+				<select name="level">
+					<option value="A">A</option>
+					<option value="B">B</option>
+					<option value="C">C</option>
+					<option value="D">D</option>
+					<option value="S">S</option>
+				</select>
+				<br/>
+
+				Condition:
+				<select name="condition">
+					<option value="Excellent">Excellent</option>
+					<option value="Good">Good</option>
+					<option value="Average">Average</option>
+					<option value="Low Cost">Low Cost</option>
+				</select>
+				<br/>
+
+				Region:
+
+			    <input type="submit">
+			</form>
+
+		</div>
+
+	</body>
+
+</html>

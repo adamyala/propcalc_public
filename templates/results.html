@@ -1,72 +1,202 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
-    <style type="text/css">
-		div	{
-			position:relative;
-			padding:10px;
-			border: 1px solid #999;
-			float: left;
-		}
-    </style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-	<div class='subject'>
-		<b>Subject</b>
-		<br/>
-		<b>Owner:</b>
-		<br/>
-		<b>Address:</b> {{street}}
-		<br/>
-		{{city}}, {{state}} {{zipcode}}
-		<br/>
-		<b>Building Size:</b> {{impr_sqft}}
-		<br/>
-		<b>Land Size:</b>
-		<br/>
-		<b>Built:</b>
-		<br/>
-		<b>Note1:</b>
-		<br/>
-		<b>Note2:</b>
-		<br/>
-		<b>Sale Price:</b> {{price}}
-		<br/>
-		<b>Sale Date:</b>
-		<br/>
-		<b>$/Sqft:</b>
-		<br/>
-		<b>Age:</b> {{age}}
-		<br/>
-		<b>Distance:</b> 0.00
-	</div>
+    <title>PropCalc</title>
 
-	{%- for comp in comps recursive %}
-		<div class='comp'>
-			<b>CompID:</b> {{ comp[0] }}
-			<br/>
-			<b>Owner:</b> {{ comp[1] }}
-			<br/>
-			<b>Address:</b> {{ comp[2] }}
-			<br/>
-			{{ comp[3] }}, {{ comp[4] }}
-			<br/>
-			<b>Building Size:</b> {{ comp[6] }}
-			<br/>
-			<b>Land Size:</b> {{ comp[7] }}
-			<br/>
-			<b>Built:</b> {{ comp[8] }}
-			<br/>
-			<b>Note1:</b> {{ comp[9] }}
-			<br/>
-			<b>Note2:</b> {{ comp[10] }}
-			<br/>
-			<b>Sale Price:</b> {{ comp[11] }}
-			<br/>
-			<b>Sale Date:</b> {{ comp[12] }}
-			<br/>
-			<b>$/Sqft:</b> {{ comp[13] }}
-			<br/>
-			<b>Age:</b> {{ comp[14] }}
-			<br/>
-			<b>Distance:</b> {{ comp[15] }}
-		</div>
-	{%- endfor -%}
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+    <!-- Add custom CSS here -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/simple-sidebar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}">
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
+
+    <!-- Add custom CSS here -->
+<!--     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"> -->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="#">PropCalc</a>
+                </li>
+                <li><a href="#">Home</a>
+                </li>
+                <li><a href="#">My Properties</a>
+                </li>
+                <li class="active"><a href="#">Sales Approach</a>
+                </li>
+                <li><a href="#">Sales Cost</a>
+                </li>
+                <li><a href="#">Sales Income - Market</a>
+                </li>
+                <li><a href="#">Sales Income - Contract</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <div class="content-header">
+                <h1>
+                    <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+                    Sales Approach
+                </h1>
+            </div>
+            <!-- Keep all page content within the page-content inset div! -->
+            <div class="page-content inset">
+                <div class="row">
+
+                    <div class="bs-example">
+                        <div class='col-md-12'>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Owner</th>
+                                        <th>Address</th>
+                                        <th>Building Area</th>
+                                        <th>Land Area</th>
+                                        <th>Built</th>
+                                        <th>Age</th>
+                                        <th>Sales Price</th>
+                                        <th>Sales Date</th>
+                                        <th>$/Sqft</th>
+                                        <th>Distance</th>
+                                        <th>Note 1</th>
+                                        <th>Note 2</th>
+                                        <th>Source</th>                                        
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <!-- Owner -->
+                                        <td>{{owner}}</td>
+                                        <!-- Address -->
+                                        <td>
+                                            {{street}}</br>
+                                            {{city}}, {{state}} {{zipcode}}
+                                        </td>
+                                        <!-- Bldg Area -->
+                                        <td>{{impr_sqft}}</td>
+                                        <!-- Land Area -->
+                                        <td>{{land_sqft}}</td>
+                                        <!-- Built -->
+                                        <td>{{built}}</td>
+                                        <!-- Age -->
+                                        <td>{{age}}</td>
+                                        <!-- Sale Price -->
+                                        <td>{{price}}</td>
+                                        <!-- Sale Date -->
+                                        <td>1/1/2014</td>
+                                        <!-- $/sqft -->
+                                        <td>{{dlrs_sqft}}</td>
+                                        <!-- Distane -->
+                                        <td>0.00</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    {%- for comp in comps recursive %}
+                                    <tr>
+                                        <!-- Owner -->
+                                        <td>{{comp[1]}}</td>
+                                        <!-- Address -->
+                                        <td>
+                                            {{comp[2]}}</br>
+                                            {{comp[3]}}, {{comp[4]}} {{zipcode}}
+                                        </td>
+                                        <!-- Bldg Area -->
+                                        <td>{{comp[6]}}</td>
+                                        <!-- Land Area -->
+                                        <td>{{comp[7]}}</td>
+                                        <!-- Built -->
+                                        <td>{{comp[8]}}</td>
+                                        <!-- Age -->
+                                        <td>{{comp[14]}}</td>
+                                        <!-- Sales Price -->
+                                        <td>{{comp[11]}}</td>
+                                        <!-- Sales Date -->
+                                        <td>{{comp[12]}}</td>
+                                        <!-- $/Sqft -->
+                                        <td>{{comp[13]}}</td>
+                                        <!-- Distance -->
+                                        <td>{{comp[15]}}</td>
+                                        <!-- Note 1 -->
+                                        <td>{{comp[9]}}</td>
+                                        <!-- Note 2 -->
+                                        <td>{{comp[10]}}</td>
+                                        <!-- Source -->
+                                        <td>{{comp[]}}</td>
+                                    </tr>
+                                    {%- endfor -%}
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+
+
+                    <!-- 
+                    {%- for comp in comps recursive %}
+                    <div class='col-md-2'>
+                        <div class='well'>
+                            <b>CompID:</b> {{ comp[0] }}
+                            <b>Building Size:</b> {{ comp[6] }}
+                            <br/>
+                            <b>Land Size:</b> {{ comp[7] }}
+                            <br/>
+                            <b>Built:</b> {{ comp[8] }}
+                            <br/>
+                            <b>Note1:</b> {{ comp[9] }}
+                            <br/>
+                            <b>Note2:</b> {{ comp[10] }}
+                            <br/>
+                            <b>Sale Price:</b> {{ comp[11] }}
+                            <br/>
+                            <b>Sale Date:</b> {{ comp[12] }}
+                            <br/>
+                            <b>$/Sqft:</b> {{ comp[13] }}
+                            <br/>
+                            <b>Age:</b> {{ comp[14] }}
+                            <br/>
+                            <b>Distance:</b> {{ comp[15] }}
+                        </div>
+                    {%- endfor -%} -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <!-- Custom JavaScript for the Menu Toggle -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+    </script>
+</body>
+
+</html>
