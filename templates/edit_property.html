@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PropCalc</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+    <!-- Add custom CSS here -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/simple-sidebar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/simple-sidebar.css" rel="stylesheet">
+    <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="#">PropCalc</a>
+                </li>
+                <li><a href="#">Home</a>
+                </li>
+                <li><a href="#"><i class="glyphicon glyphicon-link"></i> Link Databases</a>
+                </li>
+                <li><a href={{ url_for('start') }}>My Properties</a>
+                </li>
+                <li><a href={{ url_for('sales_approach_2', subject=subject) }}><i class="glyphicon glyphicon-th"></i> Sales Approach</a>
+                </li>
+                <li><a href="#"><i class="glyphicon glyphicon-th-large"></i> Sales Cost</a>
+                </li>
+                <li><a href={{ url_for('income_market', subject=subject) }}><i class="glyphicon glyphicon-th-list"></i> Sales Income - Market</a>
+                </li>
+                <li><a href="#"><i class="glyphicon glyphicon-th-list"></i> Sales Income - Contract</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <div class="content-header">
+                <h1>
+                    <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+                    Enter a new property
+                </h1>
+            </div>
+            <!-- Keep all page content within the page-content inset div! -->
+            <div class="page-content inset">
+                <div class="row">
+                    <div class='col-md-4'>
+
+                        <form role="form" name="input" action="/sales_approach/" method="POST">
+                            <div class="form-group">
+                                <input class="form-control" name="owner" placeholder="Client" value="{{ subject[0] }}">
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control" name="pin" placeholder="PIN" value="{{subject[1]}}">
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control" name="street" placeholder="Street Address" value="{{ subject[2] }}">
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control" name="city" placeholder="City" value="{{subject[3]}}">
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-control" name="state">
+                                    <option class="default" value="{{subject[4]}}" selected disabled >State</option>
+                                    <option>TX</option>
+                                    <option>AL</option>
+                                    <option>MA</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control" name="zipcode" placeholder="Zip" value={{subject[5]}}>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="impr_sqft" placeholder="Building Area" value={{subject[6]}}>
+                                    <span class="input-group-addon">SQFT</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="land_sqft" placeholder="Land Area" value={{subject[7]}}>
+                                    <span class="input-group-addon">SQFT</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="text" class="form-control" name="price" placeholder="Sale Price" value={{subject[8]}}>
+                                    <span class="input-group-addon">.00</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="age" placeholder="Age" value={{subject[9]}}>
+                                    <span class="input-group-addon">Years</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-control" name="use">
+                                    <option class="default" value="{{subject[10]}}" selected disabled >Use</option>
+                                    <option value="Light Manufacturing">Light Manufacturing</option>
+                                    <option value="Distribution Warehouse">Distribution Warehouse</option>
+                                    <option value="Storage Warehouse">Storage Warehouse</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-control" name="level">
+                                    <option class="default" value="{{subject[11]}}" selected disabled >Grade</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="S">S</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-control" name="condition">
+                                    <option class="default" value="{{subject[12]}}" selected disabled >Condition</option>
+                                    <option value="Excellent">Excellent</option>
+                                    <option value="Good">Good</option>
+                                    <option value="Average">Average</option>
+                                    <option value="Low Cost">Low Cost</option>
+                                </select>
+                            </div>
+
+                        <button type="submit" class="btn btn-default">Continue</button>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <!-- Custom JavaScript for the Menu Toggle -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+    </script>
+</body>
+
+</html>
