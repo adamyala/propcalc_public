@@ -19,7 +19,7 @@ def not_impaired(source):
 
 def useful_life(use, level, condition, age):
 	result = ''
-	constants = csv_to_list('/home/adam/Code/PropCalc/const_data/use_life.csv')
+	constants = csv_to_list('/home/adam/Code/propcalc/const_data/use_life.csv')
 	for row in constants:
 		if row[0] == use:
 			if row[1] == level:

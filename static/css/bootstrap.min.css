@@ -19,3 +19,7 @@
 .properties {
 	color: inherit;
 }
+
+.hiddenRow {
+    padding: 0 !important;
+}

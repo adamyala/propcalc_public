@@ -49,12 +49,12 @@ def find_comps(address, impr_sqft, price, age, use, level, condition):
 
 def save_subject(source):
 	# with open('../comp_data/subject.csv','wb') as result:
-	with open('../PropCalc/comp_data/subject.csv','wb') as result:
+	with open('../propcalc/comp_data/subject.csv','wb') as result:
 		resultfile = csv.writer(result, delimiter=',')
 		resultfile.writerow(source)
 	return
 
-	# source_propertyline = csv_to_list('../PropCalc/comp_data/propertyline_data.csv')
+	# source_propertyline = csv_to_list('../propcalc/comp_data/propertyline_data.csv')
 
 def print_comps(comp_ids):
 	for comp in comp_ids:

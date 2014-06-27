@@ -171,17 +171,17 @@ def sanitize_raw_costar(source, lat1, long1):
 def sanitize_combine(lat1, long1):
 	result = []
 	# source_costar = csv_to_list('../comp_data/costar_data.csv')
-	source_costar = csv_to_list('../PropCalc/comp_data/costar_data.csv')
+	source_costar = csv_to_list('../propcalc/comp_data/costar_data.csv')
 	result_costar = sanitize_raw_costar(source_costar, lat1, long1)
 	result.extend(result_costar)
 
 	# source_loopnet = csv_to_list('../comp_data/loopnet_data.csv')
-	source_loopnet = csv_to_list('../PropCalc/comp_data/loopnet_data.csv')
+	source_loopnet = csv_to_list('../propcalc/comp_data/loopnet_data.csv')
 	result_loopnet = sanitize_raw_loopnet(source_loopnet, lat1, long1)
 	result.extend(result_loopnet)
 
 	# source_propertyline = csv_to_list('../comp_data/propertyline_data.csv')
-	source_propertyline = csv_to_list('../PropCalc/comp_data/propertyline_data.csv')
+	source_propertyline = csv_to_list('../propcalc/comp_data/propertyline_data.csv')
 	result_propertyline = sanitize_raw_propertyline(source_propertyline, lat1, long1)
 	result.extend(result_propertyline)
 	

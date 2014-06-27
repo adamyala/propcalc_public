@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, g
 app = Flask(__name__)
 
-app.database = '../PropCalc/propcalc.db'
+app.database = '../propcalc/propcalc.db'
 import sqlite3
 def connect_to_database():
 	return sqlite3.connect(app.database)
@@ -65,9 +65,9 @@ def sales_approach_2(subject):
 	# comps = sales_approach(subject[12], float(subject[5]), float(subject[7]), float(subject[8]), subject[9], subject[10], subject[11])
 	return render_template('sales_approach_2.html', subject=subject)
 
-@app.route("/income_market/<subject>")
-def income_market(subject):
-	return render_template('income_market.html', subject=subject)
+@app.route("/income_approach/<subject>")
+def income_approach(subject):
+	return render_template('income_approach.html', subject=subject)
 
 if __name__ == "__main__":
 	app.debug = True

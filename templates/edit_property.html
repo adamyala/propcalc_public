@@ -40,15 +40,13 @@
                 </li>
                 <li><a href="#"><i class="glyphicon glyphicon-link"></i> Link Databases</a>
                 </li>
-                <li><a href={{ url_for('start') }}>My Properties</a>
+                <li class="active"><a href={{ url_for('start') }}>My Properties</a>
                 </li>
                 <li><a href={{ url_for('sales_approach_2', subject=subject) }}><i class="glyphicon glyphicon-th"></i> Sales Approach</a>
                 </li>
-                <li><a href="#"><i class="glyphicon glyphicon-th-large"></i> Sales Cost</a>
+                <li><a href="#"><i class="glyphicon glyphicon-th-large"></i> Cost Approach</a>
                 </li>
-                <li><a href={{ url_for('income_market', subject=subject) }}><i class="glyphicon glyphicon-th-list"></i> Sales Income - Market</a>
-                </li>
-                <li><a href="#"><i class="glyphicon glyphicon-th-list"></i> Sales Income - Contract</a>
+                <li><a href={{ url_for('income_approach', subject=subject) }}><i class="glyphicon glyphicon-th-list"></i> Income Approach</a>
                 </li>
             </ul>
         </div>
@@ -85,7 +83,7 @@
 
                             <div class="form-group">
                                 <select class="form-control" name="state">
-                                    <option class="default" value="{{subject[4]}}" selected disabled >State</option>
+                                    <option class="default" value="{{subject[4]}}" selected>{{subject[4]}}</option>
                                     <option>TX</option>
                                     <option>AL</option>
                                     <option>MA</option>
@@ -127,7 +125,7 @@
 
                             <div class="form-group">
                                 <select class="form-control" name="use">
-                                    <option class="default" value="{{subject[10]}}" selected disabled >Use</option>
+                                    <option class="default" value="{{subject[10]}}" selected>{{subject[10]}}</option>
                                     <option value="Light Manufacturing">Light Manufacturing</option>
                                     <option value="Distribution Warehouse">Distribution Warehouse</option>
                                     <option value="Storage Warehouse">Storage Warehouse</option>
@@ -136,7 +134,7 @@
 
                             <div class="form-group">
                                 <select class="form-control" name="level">
-                                    <option class="default" value="{{subject[11]}}" selected disabled >Grade</option>
+                                    <option class="default" value="{{subject[11]}}" selected>{{subject[11]}}</option>
                                     <option value="A">A</option>
                                     <option value="B">B</option>
                                     <option value="C">C</option>
@@ -147,7 +145,7 @@
 
                             <div class="form-group">
                                 <select class="form-control" name="condition">
-                                    <option class="default" value="{{subject[12]}}" selected disabled >Condition</option>
+                                    <option class="default" value="{{subject[12]}}" selected>{{subject[12]}}</option>
                                     <option value="Excellent">Excellent</option>
                                     <option value="Good">Good</option>
                                     <option value="Average">Average</option>
