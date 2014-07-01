@@ -12,7 +12,7 @@
   text-decoration: none;
 }
 
-.table td, th {
+.sales td, th {
 	text-align: center;
 }
 
@@ -20,6 +20,25 @@
 	color: inherit;
 }
 
-.hiddenRow {
-    padding: 0 !important;
+.income {
+	text-align: right;
 }
+
+.incomebox td {
+	vertical-align: center;
+}
+
+.source {
+	text-align: left;
+}
+
+.incomebox {
+	width: 100px;
+}
+.incomediv {
+	width: 130px;
+}
+
+/*.hiddenRow {
+	padding: 0 !important;
+}*/
