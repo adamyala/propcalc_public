@@ -67,7 +67,13 @@ def sales_approach_2(subject):
 
 @app.route("/income_approach/<subject>")
 def income_approach(subject):
+	subject = ast.literal_eval(subject)
 	return render_template('income_approach.html', subject=subject)
+
+@app.route("/cost_approach/<subject>")
+def cost_approach(subject):
+	# subject = ast.literal_eval(subject)
+	return render_template('cost_approach.html', subject=subject)
 
 if __name__ == "__main__":
 	app.debug = True
