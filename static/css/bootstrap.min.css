@@ -32,13 +32,30 @@
 	text-align: left;
 }
 
-.incomebox {
-	width: 100px;
-}
 .incomediv {
 	width: 130px;
 }
 
-/*.hiddenRow {
+table.incometable td, th {
+	border-top: none !important;
+}
+
+.hiddenRow {
 	padding: 0 !important;
-}*/
+}
+
+.hiddenDiv {
+	padding: 5px;
+}
+
+.incomeinput {
+	font-size: 15px !important;
+	text-align: right;
+}
+.incomeinputside {
+	vertical-align: middle !important;
+}
+
+.incometitle {
+	text-align: center;
+}
