@@ -1,0 +1,59 @@
+.sidebar-nav li.active {
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  text-decoration: none;
+}
+
+.sales td, th {
+	text-align: center;
+}
+
+.properties {
+	color: inherit;
+}
+
+.income {
+	text-align: right;
+}
+
+.incomebox td {
+	vertical-align: center;
+}
+
+.source {
+	text-align: left;
+}
+
+.incomediv {
+	width: 130px;
+}
+
+table.incometable td, th {
+	border-top: none !important;
+}
+
+.hiddenRow {
+	padding: 0 !important;
+}
+
+.hiddenDiv {
+	padding: 5px;
+}
+
+.incomeinput {
+	font-size: 14px !important;
+	text-align: right;
+}
+.incomeinputside {
+	vertical-align: middle !important;
+}
+
+.incometitle {
+	text-align: center;
+}
+
+.scollmenu {
+	height: auto;
+	max-height: 300px;
+	overflow-x: hidden;
+}
