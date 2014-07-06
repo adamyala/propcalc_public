@@ -62,8 +62,9 @@ def sales_approach():
 @app.route("/sales_approach_2/<subject>")
 def sales_approach_2(subject):
 	# sales_approach(address, impr_sqft, price, age, use, level, condition)
-	# comps = sales_approach(subject[12], float(subject[5]), float(subject[7]), float(subject[8]), subject[9], subject[10], subject[11])
-	return render_template('sales_approach_2.html', subject=subject)
+	subject = ast.literal_eval(subject)
+	comps = find_comps(subject[12], float(subject[5]), float(subject[7]), float(subject[8]), subject[9], subject[10], subject[11])
+	return render_template('sales_approach_2.html', **locals())
 
 @app.route("/income_approach/<subject>")
 def income_approach(subject):
