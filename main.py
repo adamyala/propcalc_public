@@ -7,7 +7,7 @@ def connect_to_database():
 	return sqlite3.connect(app.database)
 
 @app.route("/")
-def start():
+def main():
 	g.db = connect_to_database()
 	current = g.db.execute('select * from subjects')
 	# subjects = [dict(owner=row[0], pin=row[1], pin=row[2]) for row in current.fetchall()]
