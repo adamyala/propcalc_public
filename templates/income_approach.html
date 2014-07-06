@@ -53,7 +53,7 @@
                 </li>
                 <li><a href={{ url_for('sales_approach_2', subject=subject) }}><i class="glyphicon glyphicon-th"></i> Sales Approach</a>
                 </li>
-                <li><a href="#"><i class="glyphicon glyphicon-th-large"></i> Cost Approach</a>
+                <li><a href={{ url_for('cost_approach', subject=subject) }}><i class="glyphicon glyphicon-th-large"></i> Cost Approach</a>
                 </li>
                 <li class="active"><a href={{ url_for('income_approach', subject=subject) }}><i class="glyphicon glyphicon-th-list"></i> Income Approach</a>
                 </li>
@@ -225,8 +225,8 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th class="income hiddenRow accordian-body collapse demo2">
-                                            <div class="hiddenDiv">
+                                        <th class="income hiddenRow">
+                                            <div class="hiddenDiv accordian-body collapse demo2">
                                                 Market
                                             </div>
                                         </th>
@@ -242,8 +242,8 @@
                                         </th>
                                     </tr>
                                     <tr class="success">
-                                        <td class="hiddenRow accordian-body collapse demo2">
-                                            <div class="hiddenDiv">
+                                        <td class="hiddenRow">
+                                            <div class="hiddenDiv accordian-body collapse demo2">
                                                 Alliance
                                             </div>
                                         </td>
@@ -259,8 +259,8 @@
                                         </td>
                                     </tr>
                                     <tr class="success">
-                                        <td class="hiddenRow accordian-body collapse demo2">
-                                            <div class="hiddenDiv">
+                                        <td class="hiddenRow">
+                                            <div class="hiddenDiv accordian-body collapse demo2">
                                                 DFW Airport
                                             </div>
                                         </td>
@@ -276,8 +276,8 @@
                                         </td>
                                     </tr>
                                     <tr class="success">
-                                        <td class="hiddenRow accordian-body collapse demo2">
-                                            <div class="hiddenDiv">
+                                        <td class="hiddenRow">
+                                            <div class="hiddenDiv accordian-body collapse demo2">
                                                 East Dallas
                                             </div>
                                         </td>
@@ -890,10 +890,6 @@
         </div>
 
     </div>
-
-    <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
 
     <!-- Custom JavaScript for the Menu Toggle -->
     <script>

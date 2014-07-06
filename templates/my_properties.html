@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/simple-sidebar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/propcalc.css') }}">
 
     <!-- Bootstrap core CSS -->
     <link href="../static/css/bootstrap.css" rel="stylesheet">
@@ -24,6 +25,14 @@
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
     <link href="../static/css/simple-sidebar.css" rel="stylesheet">
     <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/css/propcalc.css" rel="stylesheet">
+
+    <script type="text/javascript" src="../static/js/bootstrap.js" ></script>
+    <script type="text/javascript" src="../static/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="../static/js/jquery-1.10.2.js" ></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/jquery-1.10.2.js"></script>
 
 </head>
 
@@ -44,7 +53,7 @@
                 </li>
                 <li><a href={{ url_for('sales_approach_2', subject=subject) }}><i class="glyphicon glyphicon-th"></i> Sales Approach</a>
                 </li>
-                <li><a href="#"><i class="glyphicon glyphicon-th-large"></i> Cost Approach</a>
+                <li><a href={{ url_for('cost_approach', subject=subject) }}><i class="glyphicon glyphicon-th-large"></i> Cost Approach</a>
                 </li>
                 <li><a href={{ url_for('income_approach', subject=subject) }}><i class="glyphicon glyphicon-th-list"></i> Income Approach</a>
                 </li>
@@ -80,10 +89,6 @@
         </div>
 
     </div>
-
-    <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
 
     <!-- Custom JavaScript for the Menu Toggle -->
     <script>
