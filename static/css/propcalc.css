@@ -57,3 +57,7 @@ table.incometable td, th {
 	max-height: 300px;
 	overflow-x: hidden;
 }
+
+.addline {
+	margin-right: 20%;
+}

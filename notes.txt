@@ -1,3 +1,6 @@
 new notes:
 	high land props
-	smart distance
+
+two columns on edit details
+	one for building info
+	one for building details
