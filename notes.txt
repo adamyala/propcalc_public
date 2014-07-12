@@ -1,6 +1,12 @@
-new notes:
-	high land props
-
 two columns on edit details
 	one for building info
 	one for building details
+
+to learn:
+	rent costs, 2 examples, then input an average
+
+where do I get cap rate from?
+
+is high vac rate good?
+
+is high cap good?
