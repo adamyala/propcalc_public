@@ -1,7 +1,3 @@
-two columns on edit details
-	one for building info
-	one for building details
-
 to learn:
 	rent costs, 2 examples, then input an average
 
