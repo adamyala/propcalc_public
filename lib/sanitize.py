@@ -181,9 +181,9 @@ def sanitize_combine(lat1, long1):
 	result.extend(result_loopnet)
 
 	# source_propertyline = csv_to_list('../comp_data/propertyline_data.csv')
-	source_propertyline = csv_to_list('../propcalc/comp_data/propertyline_data.csv')
-	result_propertyline = sanitize_raw_propertyline(source_propertyline, lat1, long1)
-	result.extend(result_propertyline)
+	# source_propertyline = csv_to_list('../propcalc/comp_data/propertyline_data.csv')
+	# result_propertyline = sanitize_raw_propertyline(source_propertyline, lat1, long1)
+	# result.extend(result_propertyline)
 	
 	# for thingy in result:
 		# print thingy

@@ -34,7 +34,8 @@ def select_comps(source, dlrs_sqft):
 
 def find_comps(address, impr_sqft, price, age, use, level, condition):
 	#Get the coordinates of subject
-	coor = get_coor(address)
+	# coor = get_coor(address)
+	coor = [32.932964, -96.91964]
 	#Sanitize data
 	cleaned_data = sanitize_combine(coor[0], coor[1])
 	#Find usable age
