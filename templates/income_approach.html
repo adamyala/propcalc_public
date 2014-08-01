@@ -85,15 +85,15 @@
                                         <td>
                                             Building Area
                                         </td>
-                                        <td>
-                                            120,644.00
+                                        <td>                                        
+                                            <span id="bldg_sqft">120644.00</span>
                                         </td>
                                         <td>
                                         </td>
                                     </tr>
                                     <tbody class="well">
-                                        <tr data-toggle="collapse" data-target=".demo1" class="accordion-toggle">
-                                            <td class="incomeinputside">
+                                        <tr>
+                                            <td data-toggle="collapse" data-target=".demo1" class="accordion-toggle incomeinputside">
                                                 Comp Rent
                                             </td>
                                             <td>
@@ -101,12 +101,12 @@
                                                     <div class="incomediv form-group">
                                                         <div class="input-group input-group-sm">
                                                             <span class="input-group-addon">$/SF</span>
-                                                            <input type="text" class="incomeinput form-control" value="2.85">
+                                                            <input onkeyup="MultInputs('comp_rent','bldg_sqft','subt1')" type="text" class="comp_rent incomeinput form-control" value=2.85 />
                                                         </div>
                                                     </div>
                                                 </form>
                                             </td>
-                                            <td class="incomeinputside source">
+                                            <td data-toggle="collapse" data-target=".demo1" class="accordion-toggle incomeinputside source">
                                                 
                                             </td>
                                         </tr>
@@ -179,7 +179,7 @@
                                             </td>
                                         </tr>
                                     </tbody>
-                                    <tbody class="well">
+                                    <tbody class="incomewell well">
                                         <tr class="">
                                             <td class="hiddenRow">
                                                 <div class="hiddenDiv accordian-body collapse demo1">
@@ -219,7 +219,7 @@
                                         <td>
                                         </td>
                                         <td>
-                                            $ 343,835.40
+                                            <span id='subt1'>$ 343,835.40</span>
                                         </td>
                                         <td>
                                         </td>
@@ -923,10 +923,32 @@
 
     <!-- Custom JavaScript for the Menu Toggle -->
     <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("active");
-    });
+        Number.prototype.formatMoney = function(c, d, t)
+        {
+            var n = this, 
+            c = isNaN(c = Math.abs(c)) ? 2 : c, 
+            d = d == undefined ? "." : d, 
+            t = t == undefined ? "," : t, 
+            s = n < 0 ? "-" : "", 
+            i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", 
+            j = (j = i.length) > 3 ? j % 3 : 0;
+            return "$ " + s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+         };
+        function MultInputs(input1, input2, outputName)
+        {
+            var total = 1;
+            var ele1 = document.getElementsByClassName(input1);
+            var ele2 = document.getElementById(input2);
+            total *= parseFloat(ele1[0].value);
+            total *= parseFloat(ele2.innerHTML);
+            var Display = document.getElementById(outputName);
+            Display.innerHTML = (total).formatMoney(2,".",",");
+        };
+        $("#menu-toggle").click(function(e)
+        {
+            e.preventDefault();
+            $("#wrapper").toggleClass("active");
+        });
     </script>
 </body>
 
