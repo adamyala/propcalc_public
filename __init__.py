@@ -6,6 +6,9 @@ import sqlite3
 def connect_to_database():
 	return sqlite3.connect(app.database)
 
+import inspect, os
+print inspect.getfile(inspect.currentframe())
+
 @app.route("/")
 def main():
 	g.db = connect_to_database()
