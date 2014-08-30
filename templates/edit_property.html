@@ -76,36 +76,91 @@
 
                         <form role="form" name="input" action="/sales_approach/" method="POST" class="editinput">
                             <div class="form-group">
-                                <input class="form-control" name="owner" placeholder="Client" value="{{ subject[0] }}">
+                                <label for="owner">Owner</label>
+                                <input class="form-control" name="owner" placeholder="Owner" value="{{subject[0]}}">
                             </div>
 
                             <div class="form-group">
+                                <label for="pin">PIN</label>
                                 <input class="form-control" name="pin" placeholder="PIN" value="{{subject[1]}}">
                             </div>
 
                             <div class="form-group">
-                                <input class="form-control" name="street" placeholder="Street Address" value="{{ subject[2] }}">
+                                <label for="street">Street</label>
+                                <input class="form-control" name="street" placeholder="Street" value="{{subject[2]}}">
                             </div>
 
                             <div class="form-group">
+                                <label for="city">City</label>
                                 <input class="form-control" name="city" placeholder="City" value="{{subject[3]}}">
                             </div>
 
                             <div class="form-group">
+                                <label for="state">State</label>
                                 <select class="form-control" name="state">
                                     <option class="default" value="{{subject[4]}}" selected>{{subject[4]}}</option>
-                                    <option>TX</option>
-                                    <option>AL</option>
-                                    <option>MA</option>
+                                        <option>AL</option>
+                                        <option>AK</option>
+                                        <option>AZ</option>
+                                        <option>AR</option>
+                                        <option>CA</option>
+                                        <option>CO</option>
+                                        <option>CT</option>
+                                        <option>DE</option>
+                                        <option>FL</option>
+                                        <option>GA</option>
+                                        <option>HI</option>
+                                        <option>ID</option>
+                                        <option>IL</option>
+                                        <option>IN</option>
+                                        <option>IA</option>
+                                        <option>KS</option>
+                                        <option>KY</option>
+                                        <option>LA</option>
+                                        <option>ME</option>
+                                        <option>MD</option>
+                                        <option>MA</option>
+                                        <option>MI</option>
+                                        <option>MN</option>
+                                        <option>MS</option>
+                                        <option>MO</option>
+                                        <option>MT</option>
+                                        <option>NE</option>
+                                        <option>NV</option>
+                                        <option>NH</option>
+                                        <option>NJ</option>
+                                        <option>NM</option>
+                                        <option>NY</option>
+                                        <option>NC</option>
+                                        <option>ND</option>
+                                        <option>OH</option>
+                                        <option>OK</option>
+                                        <option>OR</option>
+                                        <option>PA</option>
+                                        <option>RI</option>
+                                        <option>SC</option>
+                                        <option>SD</option>
+                                        <option>TN</option>
+                                        <option>TX</option>
+                                        <option>UT</option>
+                                        <option>VT</option>
+                                        <option>VA</option>
+                                        <option>WA</option>
+                                        <option>WV</option>
+                                        <option>WI</option>
+                                        <option>WY</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
+                                <label for="zip">Zip</label>
                                 <input class="form-control" name="zipcode" placeholder="Zip" value={{subject[5]}}>
                             </div>
 
                             <div class="form-group">
+                                <label for="price">Sale Price</label>
                                 <div class="input-group">
+                                    
                                     <span class="input-group-addon">$</span>
                                     <input type="text" class="form-control" name="price" placeholder="Sale Price" value={{subject[8]}}>
                                     <span class="input-group-addon">.00</span>
@@ -113,18 +168,26 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="contract">Contract Rent Per Month</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="text" class="form-control" name="contract" placeholder="Contract Rent" value={{subject[13]}}>
+                                    <span class="input-group-addon">SQFT</span>
+                                </div>
+                            </div>           
+                    </div>
+
+                    <div class='col-md-2'>
+                            <div class="form-group">
+                                <label for="age">Age</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="age" placeholder="Age" value={{subject[9]}}>
                                     <span class="input-group-addon">Years</span>
                                 </div>
-                            </div>              
-                    </div>
+                            </div>   
 
-                    <div class='col-md-2'>
-
-                        <!-- <form role="form" name="input" action="/sales_approach/" method="POST"> -->
-                            
                             <div class="form-group">
+                                <label for="impr_sqft">Building Area</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="impr_sqft" placeholder="Building Area" value={{subject[6]}}>
                                     <span class="input-group-addon">SQFT</span>
@@ -132,6 +195,7 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="land_sqft">Land Area</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="land_sqft" placeholder="Land Area" value={{subject[7]}}>
                                     <span class="input-group-addon">SQFT</span>
@@ -139,27 +203,23 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="perimeter">Perimeter</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="price" placeholder="Sale Price" value=1484>
+                                    <input type="text" class="form-control" name="perimeter" placeholder="Perimeter" value={{subject[14]}}>
                                     <span class="input-group-addon">FT</span>
                                 </div>
                             </div>
 
                             <div class="form-group">
+                                <label for="height">Floor Height</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="price" placeholder="Sale Price" value=26>
+                                    <input type="text" class="form-control" name="height" placeholder="Floor Height" value={{subject[15]}}>
                                     <span class="input-group-addon">FT</span>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="age" placeholder="Age" value={{subject[9]}}>
-                                    <span class="input-group-addon">Years</span>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
+                                <label for="use">Use</label>
                                 <select class="form-control" name="use">
                                     <option class="default" value="{{subject[10]}}" selected>{{subject[10]}}</option>
                                     <option value="Light Manufacturing">Light Manufacturing</option>
@@ -169,6 +229,7 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="level">Level</label>
                                 <select class="form-control" name="level">
                                     <option class="default" value="{{subject[11]}}" selected>{{subject[11]}}</option>
                                     <option value="A">A</option>
@@ -180,6 +241,7 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="condition">Condition</label>
                                 <select class="form-control" name="condition">
                                     <option class="default" value="{{subject[12]}}" selected>{{subject[12]}}</option>
                                     <option value="Excellent">Excellent</option>

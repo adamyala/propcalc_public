@@ -34,8 +34,7 @@ def select_comps(source, dlrs_sqft):
 
 def find_comps(address, impr_sqft, price, age, use, level, condition):
 	#Get the coordinates of subject
-	# coor = get_coor(address)
-	coor = [32.932964, -96.91964]
+	coor = get_coor(address)
 	#Sanitize data
 	cleaned_data = sanitize_combine(coor[0], coor[1])
 	#Find usable age
@@ -55,15 +54,9 @@ def save_subject(source):
 		resultfile.writerow(source)
 	return
 
-	# source_propertyline = csv_to_list('../propcalc/comp_data/propertyline_data.csv')
-
 def print_comps(comp_ids):
 	for comp in comp_ids:
 		print comp
-
-# coor = get_coor('1502 Champion Dr Carrollton, TX 75006')
-# print sanitize_combine(coor[0], coor[1])
-# print_comps(find_comps('1502 Champion Dr Carrollton, TX 75006', 120644, 3867930, 28, 'Light Manufacturing', 'C', 'Average',))
 
 
 

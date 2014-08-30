@@ -53,3 +53,8 @@ def findnth(haystack, needle, n):
 	if len(parts)<=n+1:
 		return -1
 	return len(haystack)-len(parts[-1])-len(needle)
+
+import locale
+def format_number(source):
+	key = '{:'+str(len(str(source)))+',.2f}'
+	return key.format(source)

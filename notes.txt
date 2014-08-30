@@ -2,3 +2,5 @@ give credit to distance formula
 
 relayout edit page
 	add contract rent
+
+Lookup for basecost

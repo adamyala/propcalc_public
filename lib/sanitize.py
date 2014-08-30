@@ -168,9 +168,9 @@ def sanitize_raw_costar(source, lat1, long1):
 
 def sanitize_combine(lat1, long1):
 	result = []
-	source_costar = csv_to_list('../comp_data/costar_data.csv')
+	source_costar = csv_to_list(main_dir + 'comp_data/costar_data.csv')
 	# source_costar = current = g.db.execute('select * from costar')
-	print current
+	# print current
 	result_costar = sanitize_raw_costar(source_costar, lat1, long1)
 	result.extend(result_costar)
 

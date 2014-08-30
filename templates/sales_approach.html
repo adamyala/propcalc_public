@@ -94,28 +94,20 @@
 
                                 <tbody>
                                     <tr>
-                                        <!-- Owner -->
-                                        <td>{{subject[0]}}</td>
-                                        <!-- Address -->
+                                        <td>{{subject['owner']}}</td>
                                         <td>
-                                            {{subject[1]}}</br>
-                                            {{subject[2]}}, {{subject[3]}} {{subject[4]}}
+                                            {{subject['street']}}</br>
+                                            {{subject['city']}}, {{subject['state']}} {{subject['zipcode']}}
                                         </td>
-                                        <!-- Bldg Area -->
-                                        <td>{{subject[5]}}</td>
-                                        <!-- Land Area -->
-                                        <td>{{subject[6]}}</td>
-                                        <!-- Built -->
-                                        <td>{{subject[14]}}</td>
-                                        <!-- Age -->
-                                        <td>{{subject[8]}}</td>
-                                        <!-- Sale Price -->
-                                        <td>{{subject[7]}}</td>
-                                        <!-- Sale Date -->
+                                        <td>{{subject['impr_sqft']}}</td>
+                                        <td>{{subject['land_sqft']}}</td>
+                                        <td>{{subject['built']}}</td>
+                                        <td>{{subject['age']}}</td>
+                                        <td>
+                                            <span>{{subject['price']}}</span>
+                                        </td>
                                         <td>1/1/2014</td>
-                                        <!-- $/sqft -->
-                                        <td>{{subject[13]}}</td>
-                                        <!-- Distane -->
+                                        <td>{{subject['dlrs_sqft']}}</td>
                                         <td>0.00</td>
                                         <td></td>
                                         <td></td>
