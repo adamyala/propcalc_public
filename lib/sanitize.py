@@ -12,8 +12,6 @@ def sanitize_raw_propertyline(source, lat1, long1):
 		result[a][15] = round(distance_on_unit_sphere(lat1, long1, coor[0], coor[1]),2)
 	return result
 
-# sanitize_raw_propertyline(csv_to_list('../comp_data/propertyline_data.csv'),32.932964,-96.91964)
-
 def sanitize_raw_propertyshark(source, lat1, long1):
 	first = True
 	result = []
@@ -170,8 +168,9 @@ def sanitize_raw_costar(source, lat1, long1):
 
 def sanitize_combine(lat1, long1):
 	result = []
-	# source_costar = csv_to_list('../comp_data/costar_data.csv')
-	source_costar = csv_to_list('../propcalc/comp_data/costar_data.csv')
+	source_costar = csv_to_list('../comp_data/costar_data.csv')
+	# source_costar = current = g.db.execute('select * from costar')
+	print current
 	result_costar = sanitize_raw_costar(source_costar, lat1, long1)
 	result.extend(result_costar)
 
@@ -184,11 +183,7 @@ def sanitize_combine(lat1, long1):
 	# source_propertyline = csv_to_list('../propcalc/comp_data/propertyline_data.csv')
 	# result_propertyline = sanitize_raw_propertyline(source_propertyline, lat1, long1)
 	# result.extend(result_propertyline)
-	
-	# for thingy in result:
-		# print thingy
 
 	return result
 
-# sanitize_combine(32.932964,-96.91964)
-# sanitize_raw_costar(source_costar, lat1, long1)
+# sanitize_combine(32.932964, -96.91964)

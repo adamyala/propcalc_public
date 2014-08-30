@@ -1,12 +1,4 @@
-to learn:
--	rent costs, 2 examples, then input an average
+give credit to distance formula
 
--where do I get cap rate from?
-
--is high vac rate good?
-
--is high cap good?
-
--2-3 more comp sources
-
-contract scenario
+relayout edit page
+	add contract rent

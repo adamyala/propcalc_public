@@ -1,3 +1,6 @@
+import inspect, os
+main_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + '/../'
+
 import csv
 def csv_to_list(file_path):
 	datafile = open(file_path, 'r')

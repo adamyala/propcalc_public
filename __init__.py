@@ -1,19 +1,16 @@
 from flask import Flask, render_template, request, g
 app = Flask(__name__)
 
-app.database = '../propcalc/propcalc.db'
+import inspect, os
+app.database = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + '/propcalc.db'
 import sqlite3
 def connect_to_database():
 	return sqlite3.connect(app.database)
-
-import inspect, os
-print inspect.getfile(inspect.currentframe())
 
 @app.route("/")
 def main():
 	g.db = connect_to_database()
 	current = g.db.execute('select * from subjects')
-	# subjects = [dict(owner=row[0], pin=row[1], pin=row[2]) for row in current.fetchall()]
 	subjects = current.fetchall()
 	return render_template('my_properties.html', subjects=subjects)
 
