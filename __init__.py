@@ -21,8 +21,9 @@ def edit_property(subject):
 	return render_template('edit_property.html', subject=subject)
 
 from lib.prop_calc import *
-@app.route("/sales_approach/", methods=['GET', 'POST'])
-def sales_approach():
+@app.route('/sales_approach/<subject>', methods=['GET', 'POST'])
+@app.route('/sales_approach/', defaults={'subject': None}, methods=['GET', 'POST'])
+def sales_approach(subject):
 	if request.method == 'POST':
 		subject = {}
 		for field in request.form:
@@ -30,14 +31,12 @@ def sales_approach():
 		subject['address'] = subject['street'] + ' ' + subject['city'] + ', ' + subject['state'] + ' ' + subject['zipcode']
 		subject['dlrs_sqft'] = round(float(subject['price']) / float(subject['impr_sqft']),2)
 		subject['built'] = 2014 - int(subject['age'])
-		comps = find_comps(subject['address'], float(subject['impr_sqft']), float(subject['price']), float(subject['age']), subject['use'], subject['level'], subject['condition'])
+	else:
+		subject = ast.literal_eval(subject)
+	print subject
+	print "we got here"
+	comps = find_comps(subject['address'], float(subject['impr_sqft']), float(subject['price']), float(subject['age']), subject['use'], subject['level'], subject['condition'])
 	return render_template('sales_approach.html', **locals())
-
-@app.route("/sales_approach_2/<subject>")
-def sales_approach_2(subject):
-	subject = ast.literal_eval(subject)
-	comps = find_comps(subject[12], float(subject[5]), float(subject[7]), float(subject[8]), subject[9], subject[10], subject[11])
-	return render_template('sales_approach_2.html', **locals())
 
 @app.route("/income_approach/<subject>")
 def income_approach(subject):
