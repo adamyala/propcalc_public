@@ -47,13 +47,6 @@ def find_comps(address, impr_sqft, price, age, use, level, condition):
 	comp_ids = select_comps(filtered_data, dlrs_sqft)
 	return comp_ids
 
-def save_subject(source):
-	# with open('../comp_data/subject.csv','wb') as result:
-	with open('../propcalc/comp_data/subject.csv','wb') as result:
-		resultfile = csv.writer(result, delimiter=',')
-		resultfile.writerow(source)
-	return
-
 def print_comps(comp_ids):
 	for comp in comp_ids:
 		print comp
