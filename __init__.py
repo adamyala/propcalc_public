@@ -33,8 +33,6 @@ def sales_approach(subject):
 		subject['built'] = 2014 - int(subject['age'])
 	else:
 		subject = ast.literal_eval(subject)
-	print subject
-	print "we got here"
 	comps = find_comps(subject['address'], float(subject['impr_sqft']), float(subject['price']), float(subject['age']), subject['use'], subject['level'], subject['condition'])
 	return render_template('sales_approach.html', **locals())
 

@@ -5,3 +5,5 @@ fix refinement dropdowns
 add live calcs
 
 Lookup for basecost
+
+make source links pop out in a new tab
