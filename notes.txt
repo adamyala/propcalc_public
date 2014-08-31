@@ -1,6 +1,7 @@
 give credit to distance formula
 
-relayout edit page
-	add contract rent
+fix refinement dropdowns
+
+add live calcs
 
 Lookup for basecost
