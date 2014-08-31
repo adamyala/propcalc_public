@@ -1,213 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>PropCalc</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{{ url_for('static', filename='css/bootstrap.css') }}">
-
-    <!-- Add custom CSS here -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/simple-sidebar.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/propcalc.css') }}">
-
-    <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Add custom CSS here -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/simple-sidebar.css" rel="stylesheet">
-    <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../static/css/propcalc.css" rel="stylesheet">
-
-    <script type="text/javascript" src="../static/js/bootstrap.js" ></script>
-    <script type="text/javascript" src="../static/js/bootstrap.min.js" ></script>
-    <script type="text/javascript" src="../static/js/jquery-1.10.2.js" ></script>
-    <script src="../static/js/bootstrap.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
-    <script src="../static/js/jquery-1.10.2.js"></script>
-
-</head>
-
-<body>
-
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="#">PropCalc</a>
-                </li>
-                <li><a href="#">Home</a>
-                </li>
-                <li><a href="#"><i class="glyphicon glyphicon-link"></i> Link Databases</a>
-                </li>
-                <li><a href={{ url_for('main') }}>My Properties</a>
-                </li>
-                <li class="active"><a href={{ url_for('sales_approach', subject=subject) }}><i class="glyphicon glyphicon-th"></i> Sales Approach</a>
-                </li>
-                <li><a href={{ url_for('cost_approach', subject=subject) }}><i class="glyphicon glyphicon-th-large"></i> Cost Approach</a>
-                </li>
-                <li><a href={{ url_for('income_approach', subject=subject) }}><i class="glyphicon glyphicon-th-list"></i> Income Approach</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Page content -->
-        <div id="page-content-wrapper">
-            <div class="content-header">
-                <h1>
-                    <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
-                    Sales Approach
-                </h1>
-            </div>
-            <!-- Keep all page content within the page-content inset div! -->
-            <div class="page-content inset">
-                <div class="row">
-
-                    <div class="bs-example">
-                        <div class='col-md-12'>
-                            <table class="table sales table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Owner</th>
-                                        <th>Address</th>
-                                        <th>Building Area</th>
-                                        <th>Land Area</th>
-                                        <th>Built</th>
-                                        <th>Age</th>
-                                        <th>Sales Price</th>
-                                        <th>Sales Date</th>
-                                        <th>$/Sqft</th>
-                                        <th>Distance</th>
-                                        <th>Note 1</th>
-                                        <th>Source</th>                                        
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>{{subject['owner']}}</td>
-                                        <td>
-                                            {{subject['street']}}</br>
-                                            {{subject['city']}}, {{subject['state']}} {{subject['zipcode']}}
-                                        </td>
-                                        <td>{{subject['impr_sqft']}}</td>
-                                        <td>{{subject['land_sqft']}}</td>
-                                        <td>{{subject['built']}}</td>
-                                        <td>{{subject['age']}}</td>
-                                        <td>
-                                            <span>{{subject['price']}}</span>
-                                        </td>
-                                        <td>1/1/2014</td>
-                                        <td>{{subject['dlrs_sqft']}}</td>
-                                        <td>0.00</td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    {%- for comp in comps recursive %}
-                                    <tr>
-                                        <!-- Owner -->
-                                        <td>{{comp[1]}}</td>
-                                        <!-- Address -->
-                                        <td>
-                                            {{comp[2]}}</br>
-                                            {{comp[3]}}, {{comp[4]}} {{zipcode}}
-                                        </td>
-                                        <!-- Bldg Area -->
-                                        <td>{{comp[6]}}</td>
-                                        <!-- Land Area -->
-                                        <td>{{comp[7]}}</td>
-                                        <!-- Built -->
-                                        <td>{{comp[8]}}</td>
-                                        <!-- Age -->
-                                        <td>{{comp[14]}}</td>
-                                        <!-- Sales Price -->
-                                        <td>{{comp[11]}}</td>
-                                        <!-- Sales Date -->
-                                        <td>{{comp[12]}}</td>
-                                        <!-- $/Sqft -->
-                                        <td>{{comp[13]}}</td>
-                                        <!-- Distance -->
-                                        <td>{{comp[15]}}</td>
-                                        <!-- Note 1 -->
-                                        <td>{{comp[9]}}</td>
-                                        <!-- Source -->
-                                        <td><a href="#">{{comp[16]}}</a></td>
-                                    </tr>
-                                    {%- endfor -%}
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class='col-md-4'></div>
-                        
-                        <div class='col-md-4'>
-                            <div class="well">
-                                <table class="table sales table-condensed">
-                                    <thead>
-                                        <tr>
-                                            <th>Database</th>
-                                            <th>Matching Comps</th>
-                                            <th>Used/Missed Comps</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="success">
-                                            <td>CoStar</td>
-                                            <td>109</td>
-                                            <td>5</td>
-                                        </tr>
-                                        <tr class="success">
-                                            <td>LoopNet</td>
-                                            <td>31</td>
-                                            <td>0</td>
-                                        </tr>
-                                        <tr class="danger">
-                                            <td>PropertyLine</td>
-                                            <td>45</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr class="danger">
-                                            <td>CASI</td>
-                                            <td>22</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr class="warning">
-                                            <td>Catalyst</td>
-                                            <td>40</td>
-                                            <td>0</td>
-                                        </tr>
-                                        <tr class="warning">
-                                            <td>Property Shark</td>
-                                            <td>18</td>
-                                            <td>0</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                </div>
-            </div>
-        </div>
-
+{% block content %}
+<div id="page-content-wrapper">
+    <div class="content-header">
+        <h1>
+            <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+            Sales Approach
+        </h1>
     </div>
+    <!-- Keep all page content within the page-content inset div! -->
+    <div class="page-content inset">
+        <div class="row">
 
-    <!-- Custom JavaScript for the Menu Toggle -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("active");
-    });
-    </script>
-</body>
+            <div class="bs-example">
+                <div class='col-md-12'>
+                    <table class="table sales table-striped">
+                        <thead>
+                            <tr>
+                                <th>Owner</th>
+                                <th>Address</th>
+                                <th>Building Area</th>
+                                <th>Land Area</th>
+                                <th>Built</th>
+                                <th>Age</th>
+                                <th>Sales Price</th>
+                                <th>Sales Date</th>
+                                <th>$/Sqft</th>
+                                <th>Distance</th>
+                                <th>Note 1</th>
+                                <th>Source</th>                                        
+                            </tr>
+                        </thead>
 
-</html>
+                        <tbody>
+                            <tr>
+                                <td>{{subject['owner']}}</td>
+                                <td>
+                                    {{subject['street']}}</br>
+                                    {{subject['city']}}, {{subject['state']}} {{subject['zipcode']}}
+                                </td>
+                                <td>{{subject['impr_sqft']}}</td>
+                                <td>{{subject['land_sqft']}}</td>
+                                <td>{{subject['built']}}</td>
+                                <td>{{subject['age']}}</td>
+                                <td>
+                                    <span>{{subject['price']}}</span>
+                                </td>
+                                <td>1/1/2014</td>
+                                <td>{{subject['dlrs_sqft']}}</td>
+                                <td>0.00</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            {%- for comp in comps recursive %}
+                            <tr>
+                                <!-- Owner -->
+                                <td>{{comp[1]}}</td>
+                                <!-- Address -->
+                                <td>
+                                    {{comp[2]}}</br>
+                                    {{comp[3]}}, {{comp[4]}} {{zipcode}}
+                                </td>
+                                <!-- Bldg Area -->
+                                <td>{{comp[6]}}</td>
+                                <!-- Land Area -->
+                                <td>{{comp[7]}}</td>
+                                <!-- Built -->
+                                <td>{{comp[8]}}</td>
+                                <!-- Age -->
+                                <td>{{comp[14]}}</td>
+                                <!-- Sales Price -->
+                                <td>{{comp[11]}}</td>
+                                <!-- Sales Date -->
+                                <td>{{comp[12]}}</td>
+                                <!-- $/Sqft -->
+                                <td>{{comp[13]}}</td>
+                                <!-- Distance -->
+                                <td>{{comp[15]}}</td>
+                                <!-- Note 1 -->
+                                <td>{{comp[9]}}</td>
+                                <!-- Source -->
+                                <td><a href="#">{{comp[16]}}</a></td>
+                            </tr>
+                            {%- endfor -%}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class='col-md-4'></div>
+                
+                <div class='col-md-4'>
+                    <div class="well">
+                        <table class="table sales table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Database</th>
+                                    <th>Matching Comps</th>
+                                    <th>Used/Missed Comps</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="success">
+                                    <td>CoStar</td>
+                                    <td>109</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr class="success">
+                                    <td>LoopNet</td>
+                                    <td>31</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr class="danger">
+                                    <td>PropertyLine</td>
+                                    <td>45</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr class="danger">
+                                    <td>CASI</td>
+                                    <td>22</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>Catalyst</td>
+                                    <td>40</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>Property Shark</td>
+                                    <td>18</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

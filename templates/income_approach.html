@@ -1,869 +1,794 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+{% block content %}
+<div id="page-content-wrapper">
+    <div class="content-header">
+        <h1>
+            <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+            Income Approach
+        </h1>
+    </div>
+    <!-- Keep all page content within the page-content inset div! -->
+    <div class="page-content inset">
+        <div class="row">
+            <div class="bs-example">
 
-    <title>PropCalc</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{{ url_for('static', filename='css/bootstrap.css') }}">
-
-    <!-- Add custom CSS here -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/simple-sidebar.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/propcalc.css') }}">
-
-    <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Add custom CSS here -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/simple-sidebar.css" rel="stylesheet">
-    <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../static/css/propcalc.css" rel="stylesheet">
-
-    <script type="text/javascript" src="../static/js/bootstrap.js" ></script>
-    <script type="text/javascript" src="../static/js/bootstrap.min.js" ></script>
-    <script type="text/javascript" src="../static/js/jquery-1.10.2.js" ></script>
-    <script src="../static/js/propcalc.js"></script>
-    <script src="../static/js/bootstrap.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
-    <script src="../static/js/jquery-1.10.2.js"></script>
-
-</head>
-
-<body>
-
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="#">PropCalc</a>
-                </li>
-                <li><a href="#">Home</a>
-                </li>
-                <li><a href="#"><i class="glyphicon glyphicon-link"></i> Link Databases</a>
-                </li>
-                <li><a href={{ url_for('main') }}>My Properties</a>
-                </li>
-                <li><a href={{ url_for('sales_approach_2', subject=subject) }}><i class="glyphicon glyphicon-th"></i> Sales Approach</a>
-                </li>
-                <li><a href={{ url_for('cost_approach', subject=subject) }}><i class="glyphicon glyphicon-th-large"></i> Cost Approach</a>
-                </li>
-                <li class="active"><a href={{ url_for('income_approach', subject=subject) }}><i class="glyphicon glyphicon-th-list"></i> Income Approach</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Page content -->
-        <div id="page-content-wrapper">
-            <div class="content-header">
-                <h1>
-                    <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
-                    Income Approach
-                </h1>
-            </div>
-            <!-- Keep all page content within the page-content inset div! -->
-            <div class="page-content inset">
-                <div class="row">
-                    <div class="bs-example">
-
-                        <div class="col-md-6">
-                            <div class="col-md-2">
-                                
-                            </div>
-
-                            <div class='col-md-8'>
-                                <h2 class="incometitle">Market</h2>
-                                <table class="table income incometable table-condensed" style="border-collapse:collapse;">
-                                    <tr>
-                                        <td>
-                                            Building Area
-                                        </td>
-                                        <td>                                        
-                                            <span id="bldg_sqft">120644.00</span>
-                                        </td>
-                                        <td>
-                                        </td>
-                                    </tr>
-                                    <tbody class="well">
-                                        <tr>
-                                            <td data-toggle="collapse" data-target=".demo1" class="accordion-toggle incomeinputside">
-                                                Comp Rent
-                                            </td>
-                                            <td>
-                                                <form class="incomebox form-inline" role="form">
-                                                    <div class="incomediv form-group">
-                                                        <div class="input-group input-group-sm">
-                                                            <span class="input-group-addon">$/SF</span>
-                                                            <input onkeyup="MultInputs('comp_rent','bldg_sqft','subt1')" type="text" class="comp_rent incomeinput form-control" value=2.85 />
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </td>
-                                            <td data-toggle="collapse" data-target=".demo1" class="accordion-toggle incomeinputside source">
-                                                
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1">
-                                                    
-                                                </div>
-                                            </th>
-                                            <th class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1">
-                                                    Rent/Sqft
-                                                </div>
-                                            </th>
-                                            <th class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1">
-                                                    Database
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="hiddenRow accordian-body collapse demo1">
-                                                <div class="hiddenDiv">
-                                                    High
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1">
-                                                    $ 6.57
-                                                </div>
-                                            </td>
-                                            <td class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1 source">
-                                                    <a href="#">CMS</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="success">
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1">
-                                                    Average
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1">
-                                                    $ 4.71
-                                                </div>
-                                            </td>
-                                            <td class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1 source">
-                                                    <a href="#">Source List</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1">
-                                                    Low
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1">
-                                                    $ 2.85
-                                                </div>
-                                            </td>
-                                            <td class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1 source">
-                                                    <a href="#">LoopNet</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody class="incomewell well">
-                                        <tr class="">
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1">
-                                                    Collier's Report
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1">
-                                                    $ 5.30
-                                                </div>
-                                            </td>
-                                            <td class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1 source">
-                                                    <a href="#">Colliers - 2014 - Q1</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1">
-                                                    Grub & Ellis
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1">
-                                                    $ 4.70
-                                                </div>
-                                            </td>
-                                            <td class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo1 source">
-                                                    <a href="#">Grub & Ellis - 2014 - Q1</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tr>
-                                        <td>
-                                        </td>
-                                        <td>
-                                            <span id='subt1'>$ 343,835.40</span>
-                                        </td>
-                                        <td>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="incomeinputside">
-                                            Other Income
-                                        </td>
-                                        <td>
-                                            <form class="incomebox form-inline" role="form">
-                                                <div class="incomediv form-group">
-                                                    <div class="input-group input-group-sm">
-                                                        <span class="input-group-addon">$</span>
-                                                        <input type="text" class="incomeinput form-control" value="0.00">
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tbody class="well">
-                                        <tr data-toggle="collapse" data-target=".demo2" class="accordion-toggle">
-                                            <td class="incomeinputside">
-                                                Vacancy Rate
-                                            </td>
-                                            <td>
-                                                <form class="incomebox form-inline" role="form">
-                                                    <div class="incomediv form-group">
-                                                        <div class="input-group input-group-sm">
-                                                            
-                                                            <input type="text" class="incomeinput form-control" value="8.03">
-                                                            <span class="input-group-addon">%</span>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </td>
-                                            <td class="incomeinputside source">
-                                                <a href="http://www.colliers.com/-/media/Files/MarketResearch/UnitedStates/MARKETS/Texas/DFW/2014/Q1_2014_DFW_Industrial_Market_Report" target="_blank">
-                                                Colliers - 2014 - Q1
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo2">
-                                                    Market
-                                                </div>
-                                            </th>
-                                            <th class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo2">
-                                                    Vacancy Rate
-                                                </div>
-                                            </th>
-                                            <th class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo2">
-                                                    Distance
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr class="success">
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo2">
-                                                    Alliance
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo2">
-                                                    3.50 %
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo2 source">
-                                                    0.12 miles
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo2">
-                                                    DFW Airport
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo2">
-                                                    6.60 %
-                                                </div>
-                                            </td>
-                                            <td class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo2 source">
-                                                    1.10 miles
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo2">
-                                                    East Dallas
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo2">
-                                                    6.80 %
-                                                </div>
-                                            </td>
-                                            <td class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo2 source">
-                                                    2.04 miles
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tr>
-                                        <td>
-                                            Less Vacancy
-                                        </td>
-                                        <td>
-                                            $ (27,610.00)
-                                        </td>
-                                        <td class="source">
-                                            <a href="#"></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        </td>
-                                        <td>
-                                            $ 316,225.00
-                                        </td>
-                                        <td>
-                                    </tr>
-                                    <tr>
-                                        <td class="incomeinputside">
-                                            Expense Amount
-                                        </td>
-                                        <td>
-                                            <form class="incomebox form-inline" role="form">
-                                                <div class="incomediv form-group">
-                                                    <div class="input-group input-group-sm">                                                        
-                                                        <input type="text" class="incomeinput form-control" value="5.00">
-                                                        <span class="input-group-addon">%</span>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Less Expenses
-                                        </td>
-                                        <td>
-                                            $ (15,811.25)
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="incomeinputside">
-                                            Other Expenses
-                                        </td>
-                                        <td>
-                                            <form class="incomebox form-inline" role="form">
-                                                <div class="incomediv form-group">
-                                                    <div class="input-group input-group-sm">
-                                                        <span class="input-group-addon">$</span>                                                        
-                                                        <input type="text" class="incomeinput form-control" value="0.00">                                                        
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        </td>
-                                        <td>
-                                            $ 300,413.75
-                                        </td>
-                                        <td>
-                                        </td>
-                                    </tr>
-                                    <tbody class="well">
-                                        <tr data-toggle="collapse" data-target=".demo3" class="accordion-toggle">
-                                            <td class="incomeinputside">
-                                                Adj Cap Rate
-                                            </td>
-                                            <td>
-                                                <form class="incomebox form-inline" role="form">
-                                                    <div class="incomediv form-group">
-                                                        <div class="input-group input-group-sm">
-                                                            
-                                                            <input type="text" class="incomeinput form-control" value="7.20">
-                                                            <span class="input-group-addon">%</span>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </td>
-                                            <td class="incomeinputside source">
-                                                <a href="#">Grubb & Ellis  - 2014 - Q1</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo3">
-                                                    Market
-                                                </div>
-                                            </th>
-                                            <th class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo3">
-                                                    Vacancy Rate
-                                                </div>
-                                            </th>
-                                            <th class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo3">
-                                                    Distance
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr class="success">
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo3">
-                                                    Dallas/Ft. Worth
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo3">
-                                                    7.20 %
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo3 source">
-                                                    5.61 miles
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo3">
-                                                    Houston
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo3">
-                                                    8.38 %
-                                                </div>
-                                            </td>
-                                            <td class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo3 source">
-                                                    217.36 miles
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tr>
-                                        <td>
-                                            Value
-                                        </td>
-                                        <td>
-                                            $ 4172,418.70
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Value Per Sqft
-                                        </td>
-                                        <td>
-                                            $ 34.58
-                                        </td>
-                                        <td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    
-                        <div class="col-md-6">
-                            <div class='col-md-8'>
-                                <h2 class="incometitle">Contract</h2>
-                                <table class="table income incometable table-condensed" style="border-collapse:collapse;">
-                                    <tr>
-                                        <td>
-                                            Building Area
-                                        </td>
-                                        <td>
-                                            120,644.00
-                                        </td>
-                                        <td>
-                                        </td>
-                                    </tr>
-                                    <tr data-toggle="collapse" data-target=".demo4" class="accordion-toggle">
-                                        <td class="incomeinputside">
-                                            Contract Rent
-                                        </td>
-                                        <td>
-                                            <form class="incomebox form-inline" role="form">
-                                                <div class="incomediv form-group">
-                                                    <div class="input-group input-group-sm">
-                                                        <span class="input-group-addon">$/SF</span>
-                                                        <input type="text" class="incomeinput form-control" value="2.85">
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </td>
-                                        <td class="incomeinputside source">
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        </td>
-                                        <td>
-                                            $ 343,835.40
-                                        </td>
-                                        <td>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="incomeinputside">
-                                            Other Income
-                                        </td>
-                                        <td>
-                                            <form class="incomebox form-inline" role="form">
-                                                <div class="incomediv form-group">
-                                                    <div class="input-group input-group-sm">
-                                                        <span class="input-group-addon">$</span>
-                                                        <input type="text" class="incomeinput form-control" value="0.00">
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tbody class="well">
-                                        <tr data-toggle="collapse" data-target=".demo5" class="accordion-toggle">
-                                            <td class="incomeinputside">
-                                                Vacancy Rate
-                                            </td>
-                                            <td>
-                                                <form class="incomebox form-inline" role="form">
-                                                    <div class="incomediv form-group">
-                                                        <div class="input-group input-group-sm">
-                                                            
-                                                            <input type="text" class="incomeinput form-control" value="8.03">
-                                                            <span class="input-group-addon">%</span>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </td>
-                                            <td class="incomeinputside source">
-                                                <a href="http://www.colliers.com/-/media/Files/MarketResearch/UnitedStates/MARKETS/Texas/DFW/2014/Q1_2014_DFW_Industrial_Market_Report">
-                                                Colliers - 2014 - Q1
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo5">
-                                                    Market
-                                                </div>
-                                            </th>
-                                            <th class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo5">
-                                                    Vacancy Rate
-                                                </div>
-                                            </th>
-                                            <th class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo5">
-                                                    Distance
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr class="success">
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo5">
-                                                    Alliance
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo5">
-                                                    3.50 %
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo5 source">
-                                                    0.12 miles
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo5">
-                                                    DFW Airport
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo5">
-                                                    6.60 %
-                                                </div>
-                                            </td>
-                                            <td class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo5 source">
-                                                    1.10 miles
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo5">
-                                                    East Dallas
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo5">
-                                                    6.80 %
-                                                </div>
-                                            </td>
-                                            <td class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo5 source">
-                                                    2.04 miles
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tr>
-                                        <td>
-                                            Less Vacancy
-                                        </td>
-                                        <td>
-                                            $ (27,610.00)
-                                        </td>
-                                        <td class="source">
-                                            <a href="#"></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        </td>
-                                        <td>
-                                            $ 316,225.00
-                                        </td>
-                                        <td>
-                                    </tr>
-                                    <tr>
-                                        <td class="incomeinputside">
-                                            Expense Amount
-                                        </td>
-                                        <td>
-                                            <form class="incomebox form-inline" role="form">
-                                                <div class="incomediv form-group">
-                                                    <div class="input-group input-group-sm">                                                        
-                                                        <input type="text" class="incomeinput form-control" value="5.00">
-                                                        <span class="input-group-addon">%</span>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Less Expenses
-                                        </td>
-                                        <td>
-                                            $ (15,811.25)
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="incomeinputside">
-                                            Other Expenses
-                                        </td>
-                                        <td>
-                                            <form class="incomebox form-inline" role="form">
-                                                <div class="incomediv form-group">
-                                                    <div class="input-group input-group-sm">
-                                                        <span class="input-group-addon">$</span>                                                        
-                                                        <input type="text" class="incomeinput form-control" value="0.00">                                                        
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        </td>
-                                        <td>
-                                            $ 300,413.75
-                                        </td>
-                                        <td>
-                                        </td>
-                                    </tr>
-                                    <tbody class="well">
-                                        <tr data-toggle="collapse" data-target=".demo6" class="accordion-toggle">
-                                            <td class="incomeinputside">
-                                                Adj Cap Rate
-                                            </td>
-                                            <td>
-                                                <form class="incomebox form-inline" role="form">
-                                                    <div class="incomediv form-group">
-                                                        <div class="input-group input-group-sm">
-                                                            
-                                                            <input type="text" class="incomeinput form-control" value="7.20">
-                                                            <span class="input-group-addon">%</span>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </td>
-                                            <td class="incomeinputside source">
-                                                <a href="#">Grubb & Ellis  - 2014 - Q1</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="income hiddenRow">
-                                                <div class="hiddenDiv hiddenRow accordian-body collapse demo6">
-                                                    Market
-                                                </div>
-                                            </th>
-                                            <th class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo6">
-                                                    Vacancy Rate
-                                                </div>
-                                            </th>
-                                            <th class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo6">
-                                                    Distance
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr class="success">
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo6">
-                                                    Alliance
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo6">
-                                                    3.50 %
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo6 source">
-                                                    0.12 miles
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo6">
-                                                    DFW Airport
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo6">
-                                                    6.60 %
-                                                </div>
-                                            </td>
-                                            <td class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo6 source">
-                                                    1.10 miles
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td class="hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo6">
-                                                    East Dallas
-                                                </div>
-                                            </td>
-                                            <td class="income hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo6">
-                                                    6.80 %
-                                                </div>
-                                            </td>
-                                            <td class="source hiddenRow">
-                                                <div class="hiddenDiv accordian-body collapse demo6 source">
-                                                    2.04 miles
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tr>
-                                        <td>
-                                            Value
-                                        </td>
-                                        <td>
-                                            $ 4172,418.70
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Value Per Sqft
-                                        </td>
-                                        <td>
-                                            $ 34.58
-                                        </td>
-                                        <td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-
-
+                <div class="col-md-6">
+                    <div class="col-md-2">
+                        
                     </div>
 
-
-
-
+                    <div class='col-md-8'>
+                        <h2 class="incometitle">Market</h2>
+                        <table class="table income incometable table-condensed" style="border-collapse:collapse;">
+                            <tr>
+                                <td>
+                                    Building Area
+                                </td>
+                                <td>                                        
+                                    <span id="bldg_sqft">120644.00</span>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tbody class="well">
+                                <tr>
+                                    <td data-toggle="collapse" data-target=".demo1" class="accordion-toggle incomeinputside">
+                                        Comp Rent
+                                    </td>
+                                    <td>
+                                        <form class="incomebox form-inline" role="form">
+                                            <div class="incomediv form-group">
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-addon">$/SF</span>
+                                                    <input onkeyup="MultInputs('comp_rent','bldg_sqft','subt1')" type="text" class="comp_rent incomeinput form-control" value=2.85 />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </td>
+                                    <td data-toggle="collapse" data-target=".demo1" class="accordion-toggle incomeinputside source">
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1">
+                                            
+                                        </div>
+                                    </th>
+                                    <th class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1">
+                                            Rent/Sqft
+                                        </div>
+                                    </th>
+                                    <th class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1">
+                                            Database
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr class="">
+                                    <td class="hiddenRow accordian-body collapse demo1">
+                                        <div class="hiddenDiv">
+                                            High
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1">
+                                            $ 6.57
+                                        </div>
+                                    </td>
+                                    <td class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1 source">
+                                            <a href="#">CMS</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="success">
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1">
+                                            Average
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1">
+                                            $ 4.71
+                                        </div>
+                                    </td>
+                                    <td class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1 source">
+                                            <a href="#">Source List</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1">
+                                            Low
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1">
+                                            $ 2.85
+                                        </div>
+                                    </td>
+                                    <td class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1 source">
+                                            <a href="#">LoopNet</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody class="incomewell well">
+                                <tr class="">
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1">
+                                            Collier's Report
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1">
+                                            $ 5.30
+                                        </div>
+                                    </td>
+                                    <td class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1 source">
+                                            <a href="#">Colliers - 2014 - Q1</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1">
+                                            Grub & Ellis
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1">
+                                            $ 4.70
+                                        </div>
+                                    </td>
+                                    <td class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo1 source">
+                                            <a href="#">Grub & Ellis - 2014 - Q1</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    <span id='subt1'>$ 343,835.40</span>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="incomeinputside">
+                                    Other Income
+                                </td>
+                                <td>
+                                    <form class="incomebox form-inline" role="form">
+                                        <div class="incomediv form-group">
+                                            <div class="input-group input-group-sm">
+                                                <span class="input-group-addon">$</span>
+                                                <input type="text" class="incomeinput form-control" value="0.00">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tbody class="well">
+                                <tr data-toggle="collapse" data-target=".demo2" class="accordion-toggle">
+                                    <td class="incomeinputside">
+                                        Vacancy Rate
+                                    </td>
+                                    <td>
+                                        <form class="incomebox form-inline" role="form">
+                                            <div class="incomediv form-group">
+                                                <div class="input-group input-group-sm">
+                                                    
+                                                    <input type="text" class="incomeinput form-control" value="8.03">
+                                                    <span class="input-group-addon">%</span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </td>
+                                    <td class="incomeinputside source">
+                                        <a href="http://www.colliers.com/-/media/Files/MarketResearch/UnitedStates/MARKETS/Texas/DFW/2014/Q1_2014_DFW_Industrial_Market_Report" target="_blank">
+                                        Colliers - 2014 - Q1
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo2">
+                                            Market
+                                        </div>
+                                    </th>
+                                    <th class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo2">
+                                            Vacancy Rate
+                                        </div>
+                                    </th>
+                                    <th class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo2">
+                                            Distance
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr class="success">
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo2">
+                                            Alliance
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo2">
+                                            3.50 %
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo2 source">
+                                            0.12 miles
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo2">
+                                            DFW Airport
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo2">
+                                            6.60 %
+                                        </div>
+                                    </td>
+                                    <td class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo2 source">
+                                            1.10 miles
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo2">
+                                            East Dallas
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo2">
+                                            6.80 %
+                                        </div>
+                                    </td>
+                                    <td class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo2 source">
+                                            2.04 miles
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tr>
+                                <td>
+                                    Less Vacancy
+                                </td>
+                                <td>
+                                    $ (27,610.00)
+                                </td>
+                                <td class="source">
+                                    <a href="#"></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    $ 316,225.00
+                                </td>
+                                <td>
+                            </tr>
+                            <tr>
+                                <td class="incomeinputside">
+                                    Expense Amount
+                                </td>
+                                <td>
+                                    <form class="incomebox form-inline" role="form">
+                                        <div class="incomediv form-group">
+                                            <div class="input-group input-group-sm">                                                        
+                                                <input type="text" class="incomeinput form-control" value="5.00">
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Less Expenses
+                                </td>
+                                <td>
+                                    $ (15,811.25)
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="incomeinputside">
+                                    Other Expenses
+                                </td>
+                                <td>
+                                    <form class="incomebox form-inline" role="form">
+                                        <div class="incomediv form-group">
+                                            <div class="input-group input-group-sm">
+                                                <span class="input-group-addon">$</span>                                                        
+                                                <input type="text" class="incomeinput form-control" value="0.00">                                                        
+                                            </div>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    $ 300,413.75
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tbody class="well">
+                                <tr data-toggle="collapse" data-target=".demo3" class="accordion-toggle">
+                                    <td class="incomeinputside">
+                                        Adj Cap Rate
+                                    </td>
+                                    <td>
+                                        <form class="incomebox form-inline" role="form">
+                                            <div class="incomediv form-group">
+                                                <div class="input-group input-group-sm">
+                                                    
+                                                    <input type="text" class="incomeinput form-control" value="7.20">
+                                                    <span class="input-group-addon">%</span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </td>
+                                    <td class="incomeinputside source">
+                                        <a href="#">Grubb & Ellis  - 2014 - Q1</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo3">
+                                            Market
+                                        </div>
+                                    </th>
+                                    <th class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo3">
+                                            Vacancy Rate
+                                        </div>
+                                    </th>
+                                    <th class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo3">
+                                            Distance
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr class="success">
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo3">
+                                            Dallas/Ft. Worth
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo3">
+                                            7.20 %
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo3 source">
+                                            5.61 miles
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo3">
+                                            Houston
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo3">
+                                            8.38 %
+                                        </div>
+                                    </td>
+                                    <td class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo3 source">
+                                            217.36 miles
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tr>
+                                <td>
+                                    Value
+                                </td>
+                                <td>
+                                    $ 4172,418.70
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Value Per Sqft
+                                </td>
+                                <td>
+                                    $ 34.58
+                                </td>
+                                <td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
+            
+                <div class="col-md-6">
+                    <div class='col-md-8'>
+                        <h2 class="incometitle">Contract</h2>
+                        <table class="table income incometable table-condensed" style="border-collapse:collapse;">
+                            <tr>
+                                <td>
+                                    Building Area
+                                </td>
+                                <td>
+                                    120,644.00
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr data-toggle="collapse" data-target=".demo4" class="accordion-toggle">
+                                <td class="incomeinputside">
+                                    Contract Rent
+                                </td>
+                                <td>
+                                    <form class="incomebox form-inline" role="form">
+                                        <div class="incomediv form-group">
+                                            <div class="input-group input-group-sm">
+                                                <span class="input-group-addon">$/SF</span>
+                                                <input type="text" class="incomeinput form-control" value="2.85">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td class="incomeinputside source">
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    $ 343,835.40
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="incomeinputside">
+                                    Other Income
+                                </td>
+                                <td>
+                                    <form class="incomebox form-inline" role="form">
+                                        <div class="incomediv form-group">
+                                            <div class="input-group input-group-sm">
+                                                <span class="input-group-addon">$</span>
+                                                <input type="text" class="incomeinput form-control" value="0.00">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tbody class="well">
+                                <tr data-toggle="collapse" data-target=".demo5" class="accordion-toggle">
+                                    <td class="incomeinputside">
+                                        Vacancy Rate
+                                    </td>
+                                    <td>
+                                        <form class="incomebox form-inline" role="form">
+                                            <div class="incomediv form-group">
+                                                <div class="input-group input-group-sm">
+                                                    
+                                                    <input type="text" class="incomeinput form-control" value="8.03">
+                                                    <span class="input-group-addon">%</span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </td>
+                                    <td class="incomeinputside source">
+                                        <a href="http://www.colliers.com/-/media/Files/MarketResearch/UnitedStates/MARKETS/Texas/DFW/2014/Q1_2014_DFW_Industrial_Market_Report">
+                                        Colliers - 2014 - Q1
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo5">
+                                            Market
+                                        </div>
+                                    </th>
+                                    <th class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo5">
+                                            Vacancy Rate
+                                        </div>
+                                    </th>
+                                    <th class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo5">
+                                            Distance
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr class="success">
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo5">
+                                            Alliance
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo5">
+                                            3.50 %
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo5 source">
+                                            0.12 miles
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo5">
+                                            DFW Airport
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo5">
+                                            6.60 %
+                                        </div>
+                                    </td>
+                                    <td class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo5 source">
+                                            1.10 miles
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo5">
+                                            East Dallas
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo5">
+                                            6.80 %
+                                        </div>
+                                    </td>
+                                    <td class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo5 source">
+                                            2.04 miles
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tr>
+                                <td>
+                                    Less Vacancy
+                                </td>
+                                <td>
+                                    $ (27,610.00)
+                                </td>
+                                <td class="source">
+                                    <a href="#"></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    $ 316,225.00
+                                </td>
+                                <td>
+                            </tr>
+                            <tr>
+                                <td class="incomeinputside">
+                                    Expense Amount
+                                </td>
+                                <td>
+                                    <form class="incomebox form-inline" role="form">
+                                        <div class="incomediv form-group">
+                                            <div class="input-group input-group-sm">                                                        
+                                                <input type="text" class="incomeinput form-control" value="5.00">
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Less Expenses
+                                </td>
+                                <td>
+                                    $ (15,811.25)
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="incomeinputside">
+                                    Other Expenses
+                                </td>
+                                <td>
+                                    <form class="incomebox form-inline" role="form">
+                                        <div class="incomediv form-group">
+                                            <div class="input-group input-group-sm">
+                                                <span class="input-group-addon">$</span>                                                        
+                                                <input type="text" class="incomeinput form-control" value="0.00">                                                        
+                                            </div>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    $ 300,413.75
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tbody class="well">
+                                <tr data-toggle="collapse" data-target=".demo6" class="accordion-toggle">
+                                    <td class="incomeinputside">
+                                        Adj Cap Rate
+                                    </td>
+                                    <td>
+                                        <form class="incomebox form-inline" role="form">
+                                            <div class="incomediv form-group">
+                                                <div class="input-group input-group-sm">
+                                                    
+                                                    <input type="text" class="incomeinput form-control" value="7.20">
+                                                    <span class="input-group-addon">%</span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </td>
+                                    <td class="incomeinputside source">
+                                        <a href="#">Grubb & Ellis  - 2014 - Q1</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="income hiddenRow">
+                                        <div class="hiddenDiv hiddenRow accordian-body collapse demo6">
+                                            Market
+                                        </div>
+                                    </th>
+                                    <th class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo6">
+                                            Vacancy Rate
+                                        </div>
+                                    </th>
+                                    <th class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo6">
+                                            Distance
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr class="success">
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo6">
+                                            Alliance
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo6">
+                                            3.50 %
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo6 source">
+                                            0.12 miles
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo6">
+                                            DFW Airport
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo6">
+                                            6.60 %
+                                        </div>
+                                    </td>
+                                    <td class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo6 source">
+                                            1.10 miles
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td class="hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo6">
+                                            East Dallas
+                                        </div>
+                                    </td>
+                                    <td class="income hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo6">
+                                            6.80 %
+                                        </div>
+                                    </td>
+                                    <td class="source hiddenRow">
+                                        <div class="hiddenDiv accordian-body collapse demo6 source">
+                                            2.04 miles
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tr>
+                                <td>
+                                    Value
+                                </td>
+                                <td>
+                                    $ 4172,418.70
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Value Per Sqft
+                                </td>
+                                <td>
+                                    $ 34.58
+                                </td>
+                                <td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
             </div>
+
+
+
+
         </div>
-
     </div>
-
-    <!-- Custom JavaScript for the Menu Toggle -->
-    <script>
-
-        $("#menu-toggle").click(function(e)
-        {
-            e.preventDefault();
-            $("#wrapper").toggleClass("active");
-        });
-    </script>
-</body>
-
-</html>
+</div>
+{% endblock %}

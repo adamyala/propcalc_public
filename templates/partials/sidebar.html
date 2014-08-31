@@ -1,0 +1,19 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand"><a href="#">PropCalc</a>
+        </li>
+        <li><a href="#">Home</a>
+        </li>
+        <li><a href="#"><i class="glyphicon glyphicon-link"></i> Link Databases</a>
+        </li>
+        <li><a href={{ url_for('main') }}>My Properties</a>
+        </li>
+        <li><a href={{ url_for('sales_approach', subject=subject) }}><i class="glyphicon glyphicon-th"></i> Sales Approach</a>
+        </li>
+        <li><a href={{ url_for('cost_approach', subject=subject) }}><i class="glyphicon glyphicon-th-large"></i> Cost Approach</a>
+        </li>
+        <li class="active"><a href={{ url_for('income_approach', subject=subject) }}><i class="glyphicon glyphicon-th-list"></i> Income Approach</a>
+        </li>
+    </ul>
+</div>
