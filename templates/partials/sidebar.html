@@ -10,14 +10,22 @@
         <li {% if request.endpoint == 'main' %} class='active' {% endif %}>
             <a href={{ url_for('main') }}>My Properties</a>
         </li>
-        <li {% if request.endpoint == 'sales_approach' %} class='active' {% endif %}>
-            <a href={{ url_for('sales_approach', subject=subject) }}><i class="glyphicon glyphicon-th"></i> Sales Approach</a>
-        </li>
-        <li {% if request.endpoint == 'cost_approach' %} class='active' {% endif %}>
-            <a href={{ url_for('cost_approach', subject=subject) }}><i class="glyphicon glyphicon-th-large"></i> Cost Approach</a>
-        </li>
-        <li {% if request.endpoint == 'income_approach' %} class='active' {% endif %}>
-            <a href={{ url_for('income_approach', subject=subject) }}><i class="glyphicon glyphicon-th-list"></i> Income Approach</a>
-        </li>
+        {% if (request.endpoint != 'main') and (request.endpoint != 'edit_property') %}
+            <li {% if request.endpoint == 'sales_approach' %} class='active' {% endif %}>
+                <a href={{ url_for('sales_approach', subject=subject) }}>
+                    <i class="glyphicon glyphicon-th"></i> Sales Approach
+                </a>
+            </li>
+            <li {% if request.endpoint == 'cost_approach' %} class='active' {% endif %}>
+                <a href={{ url_for('cost_approach', subject=subject) }}>
+                    <i class="glyphicon glyphicon-th-large"></i> Cost Approach
+                </a>
+            </li>
+            <li {% if request.endpoint == 'income_approach' %} class='active' {% endif %}>
+                <a href={{ url_for('income_approach', subject=subject) }}>
+                    <i class="glyphicon glyphicon-th-list"></i> Income Approach
+                </a>
+            </li>
+        {% endif %}>
     </ul>
 </div>

@@ -6,9 +6,6 @@ def sanitize_raw_propertyline(source, lat1, long1):
 	for a in range(len(source)):
 		address = source[a][2] + ' ' + source[a][3] + ', ' + source[a][4]
 		coor = get_coor(address)
-		# print address
-		# print coor
-		# print result[a][14]
 		result[a][15] = round(distance_on_unit_sphere(lat1, long1, coor[0], coor[1]),2)
 	return result
 
@@ -97,18 +94,12 @@ def sanitize_raw_loopnet(source, lat1, long1):
 				result_row[14] = date.today().year - int(result_row[8])
 			#Distance
 			address = result_row[2] + ' ' + result_row[3] + ', ' + result_row[4]
-			# coor = get_coor(address)
-			# result_row[15] = round(distance_on_unit_sphere(lat1, long1, float(coor[0]), float(coor[1])),2)
-			#$/sqft
 			result_row[13] = round(float(result_row[11]) / float(result_row[6]),2)
 			#Source
 			result_row[16] = 'LoopNet'
 			result.append(result_row)
 
 	return result
-
-# print sanitize_raw_loopnet(csv_to_list('../comp_data/loopnet_data.csv'),32.932964,-96.91964)
-# print get_coor('1502 Champion Dr Carrollton, TX 75006')
 
 def sanitize_raw_costar(source, lat1, long1):
 	first = True

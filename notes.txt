@@ -1,9 +1,11 @@
 give credit to distance formula
 
-fix refinement dropdowns
-
 add live calcs
 
 Lookup for basecost
 
 make source links pop out in a new tab
+
+implement class for property
+
+sanitize functs to take dicts

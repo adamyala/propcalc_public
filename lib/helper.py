@@ -1,3 +1,23 @@
+class property(object):
+	def __init__(self, owner, pin, street, city, state, zipcode, impr_sqft, land_sqft, price, age, use, condition, contract, perimeter, height, lat, long):
+		self.owner = owner
+		self.pin = pin
+		self.street = street
+		self.city = city
+		self.state = state
+		self.zip = zipcode
+		self.impr_sqft = impr_sqft
+		self.land_sqft = land_sqft
+		self.price = price
+		self.age = age
+		self.use = use
+		self.condition = condition
+		self.contract = contract
+		self.perimeter = perimeter
+		self.height = height
+		self.lat = lat
+		self.long = longitude
+
 import inspect, os
 main_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + '/../'
 
