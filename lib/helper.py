@@ -1,5 +1,6 @@
 class property(object):
-	def __init__(self, owner, pin, street, city, state, zipcode, impr_sqft, land_sqft, price, age, use, condition, contract, perimeter, height, lat, long):
+	def __init__(self=None, owner=None, pin=None, street=None, city=None, state=None, zipcode=None, impr_sqft=None, land_sqft=None,
+				price=None, age=None, use=None, condition=None, contract=None, perimeter=None, height=None, lat=None, longitude=None):
 		self.owner = owner
 		self.pin = pin
 		self.street = street

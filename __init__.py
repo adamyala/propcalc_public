@@ -31,7 +31,6 @@ def sales_approach(subject):
 		subject['address'] = subject['street'] + ' ' + subject['city'] + ', ' + subject['state'] + ' ' + subject['zipcode']
 		subject['dlrs_sqft'] = round(float(subject['price']) / float(subject['impr_sqft']),2)
 		subject['built'] = 2014 - int(subject['age'])
-		sub_prop = property(subject['owner'])
 	else:
 		subject = ast.literal_eval(subject)
 	comps = find_comps(subject['address'], float(subject['impr_sqft']), float(subject['price']), float(subject['age']), subject['use'], subject['level'], subject['condition'])
