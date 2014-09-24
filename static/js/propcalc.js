@@ -1,11 +1,11 @@
 $(document).on("keyup", function() {
-    putVal(mult(getVal('fldCompRent'),getVal('txtBldgSqft')),'txtSubt1');
-    putVal(multA(getVal('fldVaca'),getVal('txtSubt1')),'txtSubt2');
-    putVal(addr(getVal('txtSubt1'),getVal('txtSubt2')),'txtSubt3');
-    putVal(multA(getVal('fldExp'),getVal('txtSubt3')),'txtSubt4');
-    putVal(addr(getVal('txtSubt3'),getVal('txtSubt4')),'txtSubt5');
-    putVal(diviA(getVal('fldCap'),getVal('txtSubt5')),'txtSubt6');
-    putVal(divi(getVal('txtBldgSqft'),getVal('txtSubt6')),'txtSubt7');
+    putVal(getVal('fldCompRent') * getVal('txtBldgSqft'),'txtSubt1');
+    putVal(getVal('fldVaca')/-100 * getVal('txtSubt1'),'txtSubt2');
+    putVal(getVal('txtSubt1') + getVal('txtSubt2'),'txtSubt3');
+    putVal(getVal('fldExp')/-100 * getVal('txtSubt3'),'txtSubt4');
+    putVal(getVal('txtSubt3') + getVal('txtSubt4'),'txtSubt5');
+    putVal(getVal('txtSubt5') / (getVal('fldCap') / 100),'txtSubt6');
+    putVal(getVal('txtSubt6') / getVal('txtBldgSqft'),'txtSubt7');
 });
 Number.prototype.formatNumber = function(c, d, t)
 {
@@ -44,27 +44,7 @@ function putVal(source, input)
     var Display = document.getElementById(input);
     Display.innerHTML = toMoney(source.formatNumber(2,".",","));
 };
-function mult(input1, input2)
-{
-    return input1 * input2;
-};
-function multA(input1, input2)
-{
-    return -( input1 / 100 ) * input2;
-    // return input2;
-};
-function divi(input1, input2)
-{
-    return input2 / input1;
-}
-function diviA(input1, input2)
-{
-    return input2 / (input1 / 100);
-};
-function addr(input1, input2)
-{  
-    return input1 + input2;
-}
+
 
 // function multInputs(inputField, inputText, outputName)
 // {
