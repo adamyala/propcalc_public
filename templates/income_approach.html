@@ -26,7 +26,7 @@
                                     Building Area
                                 </td>
                                 <td>                                        
-                                    <span id="bldg_sqft">120644.00</span>
+                                    <span id="txtBldgSqft">120644.00</span>
                                 </td>
                                 <td>
                                 </td>
@@ -41,7 +41,12 @@
                                             <div class="incomediv form-group">
                                                 <div class="input-group input-group-sm">
                                                     <span class="input-group-addon">$/SF</span>
-                                                    <input onkeyup="MultInputs('comp_rent','bldg_sqft','subt1')" type="text" class="comp_rent incomeinput form-control" value=2.85 />
+                                                    <input 
+                                                        id = "fldCompRent" 
+                                                        type="text" 
+                                                        class="incomeinput form-control" 
+                                                        value=2.85 
+                                                    />
                                                 </div>
                                             </div>
                                         </form>
@@ -159,7 +164,7 @@
                                 <td>
                                 </td>
                                 <td>
-                                    <span id='subt1'>$ 343,835.40</span>
+                                    <span id='txtSubt1'>$ 343,835.40</span>
                                 </td>
                                 <td>
                                 </td>
@@ -183,22 +188,21 @@
                                 </td>
                             </tr>
                             <tbody class="well">
-                                <tr data-toggle="collapse" data-target=".demo2" class="accordion-toggle">
-                                    <td class="incomeinputside">
+                                <tr>
+                                    <td data-toggle="collapse" data-target=".demo2" class="accordion-toggle incomeinputside">
                                         Vacancy Rate
                                     </td>
                                     <td>
                                         <form class="incomebox form-inline" role="form">
                                             <div class="incomediv form-group">
                                                 <div class="input-group input-group-sm">
-                                                    
-                                                    <input type="text" class="incomeinput form-control" value="8.03">
+                                                    <input id = 'fldVaca' type = "text" class="incomeinput form-control" value="8.03"/>
                                                     <span class="input-group-addon">%</span>
                                                 </div>
                                             </div>
                                         </form>
                                     </td>
-                                    <td class="incomeinputside source">
+                                    <td data-toggle="collapse" data-target=".demo2" class="accordion-toggle incomeinputside source">
                                         <a href="http://www.colliers.com/-/media/Files/MarketResearch/UnitedStates/MARKETS/Texas/DFW/2014/Q1_2014_DFW_Industrial_Market_Report" target="_blank">
                                         Colliers - 2014 - Q1
                                         </a>
@@ -278,7 +282,7 @@
                                     Less Vacancy
                                 </td>
                                 <td>
-                                    $ (27,610.00)
+                                    <span id='txtSubt2'>$ -27,610.00</span>
                                 </td>
                                 <td class="source">
                                     <a href="#"></a>
@@ -288,7 +292,7 @@
                                 <td>
                                 </td>
                                 <td>
-                                    $ 316,225.00
+                                    <span id='txtSubt3'>$ 316,225.00</span>
                                 </td>
                                 <td>
                             </tr>
@@ -300,7 +304,7 @@
                                     <form class="incomebox form-inline" role="form">
                                         <div class="incomediv form-group">
                                             <div class="input-group input-group-sm">                                                        
-                                                <input type="text" class="incomeinput form-control" value="5.00">
+                                                <input id='fldExp' type="text" class="incomeinput form-control" value="5.00">
                                                 <span class="input-group-addon">%</span>
                                             </div>
                                         </div>
@@ -315,7 +319,7 @@
                                     Less Expenses
                                 </td>
                                 <td>
-                                    $ (15,811.25)
+                                    <span id='txtSubt4'>$ -15,811.25</span>
                                 </td>
                                 <td>
                                     
@@ -343,14 +347,14 @@
                                 <td>
                                 </td>
                                 <td>
-                                    $ 300,413.75
+                                    <span id='txtSubt5'>$ 300,413.75</span>
                                 </td>
                                 <td>
                                 </td>
                             </tr>
                             <tbody class="well">
-                                <tr data-toggle="collapse" data-target=".demo3" class="accordion-toggle">
-                                    <td class="incomeinputside">
+                                <tr>
+                                    <td data-toggle="collapse" data-target=".demo3" class="accordion-toggle incomeinputside">
                                         Adj Cap Rate
                                     </td>
                                     <td>
@@ -358,13 +362,13 @@
                                             <div class="incomediv form-group">
                                                 <div class="input-group input-group-sm">
                                                     
-                                                    <input type="text" class="incomeinput form-control" value="7.20">
+                                                    <input id="fldCap" type="text" class="incomeinput form-control" value="7.20">
                                                     <span class="input-group-addon">%</span>
                                                 </div>
                                             </div>
                                         </form>
                                     </td>
-                                    <td class="incomeinputside source">
+                                    <td data-toggle="collapse" data-target=".demo3" class="accordion-toggle incomeinputside source">
                                         <a href="#">Grubb & Ellis  - 2014 - Q1</a>
                                     </td>
                                 </tr>
@@ -425,7 +429,7 @@
                                     Value
                                 </td>
                                 <td>
-                                    $ 4172,418.70
+                                    <span id='txtSubt6'>$ 4172,418.70</span>
                                 </td>
                                 <td>
                                     
@@ -436,7 +440,7 @@
                                     Value Per Sqft
                                 </td>
                                 <td>
-                                    $ 34.58
+                                    <span id='txtSubt7'>$ 34.58</span>
                                 </td>
                                 <td>
                             </tr>
